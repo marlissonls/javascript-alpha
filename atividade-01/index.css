@@ -23,6 +23,21 @@ body {
     justify-content: center;
 }
 
+#nevoa-background {
+    height: 100%;
+    width: 100%;
+    background-image: url(./nevoa.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    opacity: .4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 #section {
     width: 65%;
     height: 80%;
@@ -31,7 +46,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;    
+    align-items: center;
+    position: absolute;   
 }
 
 h1 {
@@ -39,8 +55,8 @@ h1 {
     text-align: center;
     font-size: 150px;
     font-weight: 900;
-    color: #c1ffff;
-    text-shadow: 1px 1px 20px #93e8e8;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px #93e8e8;
 }
 
 .btn {
