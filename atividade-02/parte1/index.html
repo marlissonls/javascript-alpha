@@ -4,28 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>Questão 1</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>COMPARAÇÃO ENTRE DOIS NÚMEROS</h1>
+    <article id="article">
+        <h1>COMPARAÇÃO ENTRE DOIS NÚMEROS</h1>
 
-    <h2>Nesta página você pode digitar dois números e verificar se o primeiro número é maior, igual ou menor que o segundo número.</h2>
+        <h2>Nesta página você pode digitar dois números e verificar se o primeiro número é maior, igual ou menor que o segundo número.</h2>
 
-    <label for="first-number">Didite o primeiro número:</label>
-    <br>
-    <input type="number" id="first-number">
-    <br>
+        <div>
+            <label for="first-number">Didite o primeiro número:</label>
+            <br>
+            <input type="number" id="first-number">
+            <br>
+        </div>
 
-    <label for="second-number">Digite o segundo número:</label>
-    <br>
-    <input type="number" id="second-number">
-    <br>
+        <div>
+            <label for="second-number">Digite o segundo número:</label>
+            <br>
+            <input type="number" id="second-number">
+            <br>
+        </div>
 
-    <button onclick="compareNumbers()">COMPARAR</button>
-    <br>
+        <div>
+            <button class="btn" onclick="compareNumbers()">COMPARAR</button>
+            <br>
 
-    <div id="result"></div>
+            <p id="result"></p>
+        </div>
+    </article>
 
     <script src="./script.js"></script>
 </body>

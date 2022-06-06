@@ -3,10 +3,10 @@ function compareNumbers() {
     var secondNumber = document.getElementById("second-number").value;
 
     if (firstNumber > secondNumber)
-        document.getElementById("result").innerHTML = "O primeiro número é maior que o segundo número";
+        document.getElementById("result").innerHTML = "O primeiro número é MAIOR que o segundo número";
     else
         if (firstNumber == secondNumber)
-            document.getElementById("result").innerHTML = "O primeiro número é igual ao segundo número";
+            document.getElementById("result").innerHTML = "O primeiro número é IGUAL ao segundo número";
         else
-            document.getElementById("result").innerHTML = "O primeiro número é menor que o segundo número";
+            document.getElementById("result").innerHTML = "O primeiro número é MENOR que o segundo número";
 }

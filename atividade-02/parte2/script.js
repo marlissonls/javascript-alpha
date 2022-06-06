@@ -3,10 +3,10 @@ function compareStringLength () {
     var secondString = document.getElementById("second-string").value;
 
     if (firstString.length > secondString.length)
-        document.getElementById("result").innerHTML = "O primeiro texto é <strong>maior</strong> que o segundo texto!";
+        document.getElementById("result").innerHTML = "O primeiro texto é MAIOR que o segundo texto!";
     else
         if (firstString.length == secondString.length)
-            document.getElementById("result").innerHTML = "O primeiro texto tem o <strong>mesmo tamanho</strong> que o segundo texto!";
+            document.getElementById("result").innerHTML = "O primeiro texto tem o MESMO TAMANHO que o segundo texto!";
         else
-            document.getElementById("result").innerHTML = "O primeiro texto é <strong>menor</strong> que o segundo texto!";
+            document.getElementById("result").innerHTML = "O primeiro texto é MENOR que o segundo texto!";
 }
