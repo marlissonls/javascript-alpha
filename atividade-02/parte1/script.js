@@ -1,6 +1,6 @@
 function compareNumbers() {
-    var firstNumber = document.getElementById("first-number").value;
-    var secondNumber = document.getElementById("second-number").value;
+    var firstNumber = parseInt(document.getElementById("first-number").value);
+    var secondNumber = parseInt(document.getElementById("second-number").value);
 
     if (firstNumber > secondNumber)
         document.getElementById("result").innerHTML = "O primeiro número é MAIOR que o segundo número";
