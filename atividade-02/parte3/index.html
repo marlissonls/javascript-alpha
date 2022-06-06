@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 2</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>CALCULO APROXIMADO DE DIAS RESTANTES DE VIDA</h1>
+
+    <h2>Informe sua data e sexo para saber a sua estimativa de dias restantes de vida:</h2>
+<!--
+    <label for="">Informe sua data de nascimento no campo abaixo:</label><br>
+    <input type="number" id="birth-day" min="1" max="31" >
+    <input type="number" id="birth-month" min="1" max="12">
+    <input type="number" id="birth-year">
+-->
+    <button onclick="remainingDays()">RESULTADO</button>
+
+    <div id="result"></div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 3</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1>CALCULO APROXIMADO DE DIAS RESTANTES DE VIDA</h1>
+            <h2>Informe sua data de nascimento e sexo para saber a sua estimativa de dias restantes de vida:</h2>
+            <label for="birthday">Data de aniversário:</label>
+            <input type="date" id="birthday" />
+            <fieldset>
+                <legend>Sexo:</legend>
+                <input type="radio" id="radio1" name="gender" value="Masculino"/>
+                <label for="radio1">Masculino</label>
+                <input type="radio" id="radio2" name="gender" value="Feminino"/>
+                <label for="radio2">Feminino</label>
+            </fieldset>
+            <button onclick="diasRestantes()">Verificar</button>
+            <div id="result"></div>
+        </section>
+    </main>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
