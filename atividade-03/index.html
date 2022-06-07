@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 03</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <h1>ATIVIDADE 03 - TRILHA JAVASCRIPT</h1>
+        <h2>Programa que permite realizar as 4 operações básicas e a operação de resto entre dois operandos:</h2>
+        <section class="operandos"> 
+            <div>
+                <label for="operando1">1º Operando</label><br>
+                <input type="number" id="operando1">
+            </div>
+            
+            <div>
+                <label for="operador">Operador</label><br>
+                <select id="operador" onchange="operador()">
+                    <option value=""></option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">x</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="operando2">2º Operando</label><br>
+                <input type="number" id="operando2">
+            </div>
+        </section>
+
+        <section class="calculos">
+            <button onclick="resultado()">Resultado</button>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
