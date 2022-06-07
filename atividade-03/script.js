@@ -3,9 +3,11 @@ function operador() {
     return opSelected;
 }
 
-function clear() {
-    document.getElementById("resultado").innerHTML = "teste"
-    alert("clear");
+function limpar() {
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("operando1").value = "";
+    document.getElementById("operando2").value = "";
+    document.getElementById("operador").value = "";
 }
 
 function resultado() {

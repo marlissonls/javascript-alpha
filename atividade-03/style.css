@@ -20,7 +20,7 @@ body {
     display: flex;
     align-items: center;
 
-    background-image:linear-gradient(to right, #f3ff73 0, #ffd041 50%, #fff649 100%);
+    background-color: #20444a;
 }
 
 h1 {
@@ -112,7 +112,7 @@ button:active {
 
 #resultado {
     min-height: 30px;
-    width: 300px;
+    width: 390px;
     border-radius: 0;
 
     font-family: 'Calculator';
