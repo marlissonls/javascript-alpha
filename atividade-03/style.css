@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+@font-face {
+    font-family: 'Calculator';
+    src: url(./Calculator.ttf);
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -45,7 +50,7 @@ main {
 
 .operandos {
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 
 .operandos div {
@@ -60,11 +65,23 @@ label {
 }
 
 input, select{
-    height: 30px;
-    width: 100px;
+    height: 40px;
+    width: 120px;
     border-radius: 0;
+
+    font-family: 'Calculator';
     text-align: center;
-    font-size: 20px
+    font-size: 40px;
+    color: #65c765;
+    background-color: #084308;
+}
+
+select {
+    width: 60px;
+}
+
+select option {
+    font-family: 'Calculator';
 }
 
 .calculos {
@@ -97,9 +114,12 @@ button:active {
     min-height: 30px;
     width: 300px;
     border-radius: 0;
+
+    font-family: 'Calculator';
     text-align: center;
-    font-size: 25px;
-    background-color: #fff;
+    font-size: 45px;
+    color: #65c765;
+    background-color: #084308;
 }
 
 input, select, button, #resultado {

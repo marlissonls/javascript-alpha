@@ -3,6 +3,11 @@ function operador() {
     return opSelected;
 }
 
+function clear() {
+    document.getElementById("resultado").innerHTML = "teste"
+    alert("clear");
+}
+
 function resultado() {
     var operando1 = parseFloat(document.getElementById("operando1").value);
     var operando2 = parseFloat(document.getElementById("operando2").value);
@@ -27,6 +32,7 @@ function resultado() {
             case "*":
                 resultado = operando1 * operando2;
                 document.getElementById("resultado").innerHTML = operando1 + " x " + operando2 + " = " + resultado;
+                //document.getElementById("resultado").textContent = operando1 + " x " + operando2 + " = " + resultado;
                 break;
                 
             case "/":
