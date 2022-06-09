@@ -10,6 +10,8 @@
 body {
     width: 100%;
 
+    background-image: linear-gradient(to right, #ff0000bb, #00ff00bb, #0000ffbb), url(https://wallpaperaccess.com/full/1555179.png);
+
     display: flex;
     flex-direction: column;
     align-items: center;
