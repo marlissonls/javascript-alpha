@@ -1,7 +1,7 @@
 function swithCase0() {
     const numero = parseInt((document.getElementById("numero").value),10);
 
-    if (numero >= 10 || numero <= 0) {
+    if (numero > 10 || numero < 0) {
         alert("Insira um número interio com valor de 0 a 10!");
     }
     else {
@@ -41,4 +41,9 @@ function swithCase0() {
                 break;
         }
     }
+}
+
+function limpar() {
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("numero").value = "";
 }

@@ -9,19 +9,25 @@
 </head>
 <body>
     <main>
-            <h1>ATIVIDADE 5 PARTE 1 - TRILHA JAVASCRIPT</h1>
-            <h2>Esta página permite, através da estrutura 'Switch', digitar um valor de 0 a 10 no formulário e mostrá-lo na página de forma textual.</h2>
+        <h1>ATIVIDADE 5 PARTE 1 - TRILHA JAVASCRIPT</h1>
+        <h2>Esta página permite, através da estrutura Switch', digitar um valor de 0 a 10 no formulário e mostrá-lo na página de forma textual.</h2>
 
-            <form id="form"> 
-                <div>
-                    <label class="form" for="numero">Informe um valor de 0 a 10:</label><br>
-                    <input type="number" id="numero">
-                </div> 
-                <button class="btn" type="button" onclick="swithCase0()">Display</button>            
-            </form>
+        <form id="form"> 
+            <div class="form">
+                <label for="numero">Informe um valor de 0 a 10:</label>
+                <input type="number" id="numero" placeholder="ex: 7">
+            </div>
+
+            <div class="button">
+                <button class="btn" type="button" onclick="swithCase0()">Display</button>
+
+                <button class="btn" type="button" onclick="limpar()">Limpar</button>
+            </div>
+
             <div>
                 <p id="resultado"></p>
-            </div>    
+            </div>          
+        </form>  
     </main>
     
     <script src="./script.js"></script>
