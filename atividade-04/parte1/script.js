@@ -1,8 +1,7 @@
-
-
 function calcularImc() {
     const peso = parseFloat(document.getElementById('peso').value);
     const altura = parseFloat(document.getElementById('altura').value)/100;
+    const resultado = document.getElementById("resultado");
 
     let classificacaoIMC='';
 
@@ -39,5 +38,11 @@ function calcularImc() {
           classificacaoIMC = 'obesidade';
         }
     
-    document.getElementById("resultado").innerHTML = 'Seu IMC é ' + imc.toFixed(2) + ', classificado como ' + classificacaoIMC +'.';
-}  
+    resultado.innerHTML = 'Seu IMC é ' + imc.toFixed(2) + '<br>Classificação: ' + classificacaoIMC +'.';
+}
+
+function limpar() {
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("peso").value = "";
+    document.getElementById("altura").value = "";
+}

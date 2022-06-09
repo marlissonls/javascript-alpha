@@ -9,18 +9,21 @@
 </head>
   
 <body>
-    <main id="exercise3">
-        <section id="section">
-            <h1>ATIVIDADE 4 PARTE 4 - TRILHA JAVASCRIPT</h1>
-            <h2>Sortear dentro dados demográficos do IBGE um homem/mulher que seja idoso(a)/não idoso(a):</h2>
+    <main>
+        <h1>ATIVIDADE 4 PARTE 4 - TRILHA JAVASCRIPT</h1>
+        <h2>Sortear dentro dados demográficos do IBGE um homem/mulher que seja idoso(a)/não idoso(a):</h2>
 
-            <form id="form">
-                <div>
-                    <button class="btn" type="button" onclick="sortearIbge()">Sortear pessoa</button>
-                    <p id="resultado"></p>
-                </div>        
-            </form>
-        </section>
+        <form id="form">
+            <div class="button">
+                <button class="btn" type="button" onclick="sortearIbge()">Sortear</button>
+
+                <button class="btn" type="button" onclick="limpar()">Limpar</button>
+            </div>
+
+            <div>
+                <p id="resultado"></p>
+            </div>
+        </form>
     </main>
 
     <script src="./script.js"></script>

@@ -10,24 +10,27 @@
   
 <body>
     <main id="exercise3">
-        <section id="section">
-            <h1>ATIVIDADE 4 PARTE 3 - TRILHA JAVASCRIPT</h1>
-            <h2>Mostrar a os valores de "chão" e "teto" de um número decimal</h2>
+        <h1>ATIVIDADE 4 PARTE 3 - TRILHA JAVASCRIPT</h1>
+        <h2>Este formulário recebe um número decimal e devolve os valores arredondados deste número para baixo (chão) e para cima (teto).</h2>
 
-            <form id="form"> 
-                <div>
-                    <label class="form" for="valor">Digite um número Decimal:</label><br>
-                    <input type="number" id="valor" name="minimo">
-                </div>        
-            </form>
+        <form id="form"> 
+            <div class="form" >
+                <label for="valor">Digite um número Decimal:</label>
+                <input type="number" id="valor" name="minimo">
+            </div>
+            
+            <div class="button">
+                <button class="btn" type="button" onclick="minMax()">Arredondar</button>
+
+                <button class="btn" type="button" onclick="limpar()">Limpar</button>
+            </div>
+
             <div>
-                <button class="btn" type="button" onclick="minMax()">Sortear número</button>
                 <p id="resultado"></p>
             </div>
-        </section>    
+        </form>
     </main>
 
     <script src="./script.js"></script>
 </body>
-
 </html>

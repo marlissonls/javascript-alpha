@@ -9,25 +9,30 @@
     </head>
     <body>
         <main>
-            <section id="section">
-                <h1>ATIVIDADE 4 PARTE 1 - TRILHA JAVASCRIPT</h1>
-                <h2>Cálculo do IMC</h2>
+            <h1>ATIVIDADE 4 PARTE 1 - TRILHA JAVASCRIPT</h1>
+            <h2>Cálculo do IMC</h2>
 
-                <form id="form"> 
-                    <div>
-                        <label class="form" for="peso">Digite seu peso (em kg):</label>
-                        <input type="number" id="peso" name="peso" placeholder="ex: 70">
-                    </div>
-                    <div>
-                        <label class="form" for="altura">Digite sua altura (em cm):</label>
-                        <input type="number" id="altura" name="altura" placeholder="ex: 170">
-                    </div>            
-                    <div>
-                        <button id="btn" type="button" onclick="calcularImc()">Calcular IMC</button>
-                        <p id="resultado"></p>
-                    </div>            
-                </form>
-            </section>    
+            <form id="form"> 
+                <div class="form">
+                    <label for="peso">Digite seu peso (em kg):</label>
+                    <input type="number" id="peso" name="peso" placeholder="ex: 70">
+                </div>
+                
+                <div class="form">
+                    <label for="altura">Digite sua altura (em cm):</label>
+                    <input type="number" id="altura" name="altura" placeholder="ex: 170">
+                </div>
+                
+                <div class="button">
+                    <button class="btn" type="button" onclick="calcularImc()">Calcular IMC</button>
+                    
+                    <button class="btn" type="button" onclick="limpar()">Limpar</button>
+                </div>
+                
+                <div>
+                    <p id="resultado"></p>
+                </div> 
+            </form>                    
         </main>
 
         <script src="./script.js"></script>

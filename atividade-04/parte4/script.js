@@ -6,8 +6,10 @@
 // 600-1000 -> homem não Idoso
 
 function sortearIbge() {
-    const sorteado = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
-    var pessoa
+    const minimo = 1;
+    const maximo = 1000;
+    const sorteado = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    let pessoa
 
     if (sorteado <= 86) {
         pessoa = "Mulher Idosa.";
@@ -27,4 +29,8 @@ function sortearIbge() {
     }
 
     document.getElementById("resultado").innerHTML = "Pessoa sorteada: " + pessoa + "<br>Número da pessoa sorteada: " + sorteado + ".";
+}
+
+function limpar() {
+    document.querySelector("#resultado").textContent = ""
 }
