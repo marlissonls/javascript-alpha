@@ -18,6 +18,6 @@ function sortearN() {
         return false;    
     }
 
-    const sorteado = Math.floor(Math.random() * (maximo - minimo) + minimo);
+    const sorteado = Math.floor(Math.random() * (maximo - minimo + 1) + minimo);
     document.getElementById("resultado").innerHTML = 'Valor sorteado: '+ sorteado +'.';
 }
