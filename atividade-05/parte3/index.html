@@ -8,23 +8,27 @@
     <link rel="stylesheet" href="./style.css"> 
 </head>
 <body>
-    <main>
-        <section id="section">
-            <h1>ATIVIDADE 5 PARTE 3 - TRILHA JAVASCRIPT</h1>
-            <h2>Esta página permite ao usuário selecionar um produto de uma lista e mostrá-lo na tela.</h2>
+    <h1>ATIVIDADE 5 PARTE 3 - TRILHA JAVASCRIPT</h1>
+        <h2>Esta página permite ao usuário selecionar um produto de uma lista e mostrá-lo na tela.</h2>
+        <h2>OBSERVAÇÃO: Ao invés de usar o evento onclick no &ltbutton&gt, achei mais interessante usar o evento onchage no &ltselect&gt. Todavia, a opção do botão também está presente no código dentro de tags de comentário.</h2>
+        <form id="form"> 
+            <select name="form-select" id="item" onchange="showItem()">
+                <option value=""></option>
+                <option value="mochila">Mochila</option>
+                <option value="relogio">Relógio</option>
+                <option value="faca">Faca</option>
+                <option value="chaveiro">Chaveiro</option>
+                <option value="moletom">Moletom</option>
+            </select>
+            <!--<button class="btn" type="button" onclick="showItem()">Exibir</button>-->
+        </form>
+        
+    <section> 
+        
+        <div id="resultado">
 
-            <form id="form"> 
-                <div>
-                    <label class="form" for="minimo">Valor Mínimo:</label>
-                    <input type="number" id="minimo" name="minimo">
-                </div>            
-            </form>
-            <div>
-                <button class="btn" type="button" onclick="sortearN()">Sortear número</button>
-                <p id="resultado"></p>
-            </div>
-        </section>    
-    </main>
+        </div>
+    </section>
     
     <script src="./script.js"></script>
 </body>
