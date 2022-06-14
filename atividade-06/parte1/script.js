@@ -7,14 +7,15 @@ const bombExplosionAudio = document.getElementById("explosion-audio");
 let contagem;
 
 //armarB.addEventListener("click", armarBomba);
-desarmarB.addEventListener("click", desarmarBomba);
+
 
 function armarBomba () {
     bomba.src = "images/img1.png";
     bombPlantedAudio.volume = 1.0;
     bombPlantedAudio.play();
-    document.querySelector("h2").innerHTML = "THE BOM HAS BEEN PLANTED";
-    contagem = setTimeout(detonarBomba, 3000);
+    document.querySelector("h2").innerHTML = "THE BOM HAS BEEN PLANTED<br><button type='button'>WAIT 10 SECONDS OR CLICK ON BOMB</button>";
+    desarmarB.addEventListener("click", desarmarBomba);
+    contagem = setTimeout(detonarBomba, 10000);
 }
 
 function detonarBomba () {
@@ -22,7 +23,7 @@ function detonarBomba () {
     bombExplosionAudio.volume = 1.0;
     bombExplosionAudio.play();
     desarmarB.removeEventListener("click", desarmarBomba);
-    document.querySelector("h2").innerHTML = "OH NO!!<br><button type='button' onclick='armarBomba ()'>TRY AGAIN (CLICK HERE)</button>";
+    document.querySelector("h2").innerHTML = "OH NO!!<br><button type='button' onclick='retry ()'>TRY AGAIN</button>";
 }
 
 function desarmarBomba () {
@@ -30,6 +31,11 @@ function desarmarBomba () {
     bomba.src = "images/img2.png";
     bombDefusedAudio.volume = 1.0;
     bombDefusedAudio.play();
-    document.querySelector("h2").innerHTML = "THE BOM HAS BEEN DEFUSED<br><button type='button' onclick='armarBomba ()'>TRY AGAIN (CLICK HERE)</button>";
+    document.querySelector("h2").innerHTML = "THE BOM HAS BEEN DEFUSED<br><button type='button' onclick='retry ()'>TRY AGAIN</button>";
+    desarmarB.removeEventListener("click", desarmarBomba);
 }
 
+function retry () {
+    bomba.src = "images/img0.png";
+    document.querySelector("h2").innerHTML = "NOTHING HAPPENING...<br><button type='button' onclick='armarBomba ()'>START</button>";
+}
