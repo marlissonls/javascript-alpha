@@ -13,7 +13,7 @@ function armarBomba () {
     bomba.src = "images/img1.png";
     bombPlantedAudio.volume = 1.0;
     bombPlantedAudio.play();
-    document.querySelector("h2").innerHTML = "THE BOM HAS BEEN PLANTED<br><button type='button'>WAIT 10 SECONDS OR CLICK ON BOMB</button>";
+    document.querySelector("h2").innerHTML = "THE BOMB HAS BEEN PLANTED<br><button type='button'>WAIT 10 SECONDS OR CLICK ON BOMB</button>";
     desarmarB.addEventListener("click", desarmarBomba);
     contagem = setTimeout(detonarBomba, 10000);
 }
@@ -31,7 +31,7 @@ function desarmarBomba () {
     bomba.src = "images/img2.png";
     bombDefusedAudio.volume = 1.0;
     bombDefusedAudio.play();
-    document.querySelector("h2").innerHTML = "THE BOM HAS BEEN DEFUSED<br><button type='button' onclick='retry ()'>TRY AGAIN</button>";
+    document.querySelector("h2").innerHTML = "THE BOMB HAS BEEN DEFUSED<br><button type='button' onclick='retry ()'>TRY AGAIN</button>";
     desarmarB.removeEventListener("click", desarmarBomba);
 }
 
