@@ -1,34 +1,17 @@
-/*
-let remainingTime = 10;
-let myInterval = setInterval(myTimer,1000);
-
-function myTimer () {
-    remainingTime--;
-    let timing = document.getElementById('timer');
-    timing.innerHTML = remainingTime;
-    if (remainingTime <= 3) {
-        timing.style.color = "red";
-    }
-    if (remainingTime === 0) {
-        clearInterval (myInterval);;
-    }
-}
-*/
-
 const bomba = document.getElementById('bomb-img');
 const armarB = document.querySelector('#button');
 const desarmarB = document.getElementById('bomb-img');
 const bombPlantedAudio = document.getElementById("planted-audio");
 const bombDefusedAudio = document.getElementById("defused-audio");
 const bombExplosionAudio = document.getElementById("explosion-audio");
-
+const tick = document.getElementById("tick");
 
 let remainingTime;
 let decreaseTime;
 let displayTimer;
 
 function armarBomba () {
-    remainingTime = 5+1;
+    remainingTime = 10;
     bomba.src = "images/img1.png";
     bombPlantedAudio.volume = 1.0;
     bombPlantedAudio.play();
@@ -38,6 +21,8 @@ function armarBomba () {
 }
 
 function timer () {
+    tick.volume = 1.0;
+    tick.play();
     remainingTime--;
     displayTimer = document.querySelector("#timer");
     if (remainingTime >= 10) {
@@ -53,6 +38,7 @@ function timer () {
 }
 
 function detonarBomba () {
+    clearInterval (decreaseTime);
     bomba.src = "images/explosao.png";
     bombExplosionAudio.volume = 1.0;
     bombExplosionAudio.play();
@@ -75,3 +61,20 @@ function retry () {
     document.querySelector("h2").innerHTML = "NOTHING HAPPENING...<br><button type='button' onclick='armarBomba ()'>START</button>";
     document.querySelector("#timer").innerHTML = "TIMER";
 }
+
+/*
+let remainingTime = 10;
+let myInterval = setInterval(myTimer,1000);
+
+function myTimer () {
+    remainingTime--;
+    let timing = document.getElementById('timer');
+    timing.innerHTML = remainingTime;
+    if (remainingTime <= 3) {
+        timing.style.color = "red";
+    }
+    if (remainingTime === 0) {
+        clearInterval (myInterval);;
+    }
+}
+*/
