@@ -11,7 +11,7 @@ let decreaseTime;
 let displayTimer;
 
 function armarBomba () {
-    remainingTime = 10;
+    remainingTime = 60;
     bomba.src = "images/img1.png";
     bombPlantedAudio.volume = 1.0;
     bombPlantedAudio.play();
