@@ -21,7 +21,7 @@ function stop () {
 }
 
 function decreaseSecs () {
-    //Os primeiros 4 if()s servem para ajustar o display do timer.
+    //Os primeiros 5 if()s servem para ajustar o display do timer.
     if((segundos + 60*minutos) <= 0.05*totalSecs) {
         timer.style.color = "#ff3737";
         timer.style.textShadow = "0 0 15px #cc0000";
@@ -46,7 +46,7 @@ function decreaseSecs () {
         timer.innerHTML = "0" + minutos + ":0" + segundos;
     };
 
-    //Estes outros 4 if()s servem para decrementar os minutos e segundos ou reatribuir os segundos com o valor 59
+    //Estes outros 3 if()s servem para decrementar os minutos e segundos ou reatribuir os segundos com o valor 59
     if (minutos >= 0 && segundos > 0) {
         segundos--;
         return;
