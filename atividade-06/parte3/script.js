@@ -47,7 +47,7 @@ function decreaseSecs () {
     };
 
     //Estes outros 3 if()s servem para decrementar os minutos e segundos ou reatribuir os segundos com o valor 59
-    if (minutos >= 0 && segundos > 0) {
+    if (segundos > 0) {
         segundos--;
         return;
     };
