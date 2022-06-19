@@ -2,7 +2,7 @@ let fabricante = document.querySelector("#fabricante");
 let model = document.querySelector("#modelo");
 let preco = document.querySelector("#preco");
 let velocity = document.querySelector("#velocidade");
-let zeroCem = document.querySelector("aceleracao")
+let zeroCem = document.querySelector("#aceleracao");
 let peso = document.querySelector("#peso");
 let img = document.querySelector("#carro-imagem");
 
@@ -16,18 +16,18 @@ const imgFerrari = "images/ferrari.png";
 
 const fabricLambo = "Lamborghini";
 const modelLambo = "Aventador S";
-const precoLambo = "";
-const velocLambo = "";
-const acelLambo = "";
-const pesoLambo = "";
+const precoLambo = "R$ 3.980.000,00";
+const velocLambo = "350";
+const acelLambo = "2,5";
+const pesoLambo = "1,55";
 const imgLambo = "images/lamborghini.png";
 
 const fabricPorsche = "Porsche";
 const modelPorsche = "911 GTS";
-const precoPorsche = "";
-const velocPorsche = "";
-const acelPorsche = "";
-const pesoPorsche = "";
+const precoPorsche = "R$ 919.000";
+const velocPorsche = "310";
+const acelPorsche = "3,3";
+const pesoPorsche = "1,57";
 const imgPorsche = "images/porsche.png";
 
 function displayData () {
