@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /*border: 1px solid red;*/
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    background-image: url("https://xboxplay.games/uploadStream/4522.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 100%;
+}
+
+main {
+    width: 80%;
+    height: 100vh;
+    padding-top: 40px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#porta-imagem {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+#car-data {
+    position: fixed;
+    top: 200px;
+    left: 200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+img {
+    width: 72%;
+}
+
+p, select {
+    height: 50px;
+    min-width: 200px;
+    padding: 4px 20px;
+    border-radius: 10px;
+    border: solid #000 5px;
+    background-color: white;
+
+    font-size: 25px;
+}

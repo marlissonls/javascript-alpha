@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 07 - QUESTÃO 1</title>
+    <link rel="stylesheet" href="./style.css"> 
+</head>
+<body>
+    <main>
+        <form  action="none" method="get">
+            <select name="" id="select-model" onchange="displayData ()">
+                <option value=""></option>
+                <option value="ferrari">Ferrari 488 GTB</option>
+                <option value="lamborghini">Lamborghini Aventador S</option>
+                <option value="porsche">Porsche 911 GTS</option>
+            </select>
+        </form>
+        <div id="car-data">
+            <p>Fabricante: <span id="fabricante">-</span></p>
+            <p>Modelo: <span id="modelo">-</span></p>
+            <p>Preço: <span id="preco">-</span></p>
+            <p>Max speed: <span id="velocidade"></span> km/h</p>
+            <p>0 a 100: <span id="aceleracao"></span> s</p>
+            <p>Peso: <span id="peso"></span> ton.</p>
+        </div>
+        <div id="porta-imagem">
+            <img id="carro-imagem" src="">
+        </div>
+    </main>
+    
+    <script src="./script.js"></script>
+</body> 
+</html>
