@@ -67,7 +67,9 @@ function displayData () {
         default:
             fabricante.innerHTML = "";
             model.innerHTML = "";
+            preco.innerHTML = "";
             velocity.innerHTML = "";
+            zeroCem.innerHTML = "";
             peso.innerHTML = "";
             img.src = "";
     }      
