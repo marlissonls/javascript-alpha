@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <article>
+        <div id="warn"></div>
+
+        <div>
+            <form action="">
+                <div class="row">
+                    <input id="product-name" type="text" placeholder="Insira o nome do produto" required>
+                    <input id="product-price" type="text" placeholder="Insira o preço do produto" required>
+                </div>
+                <textarea id="product-description" cols="30" rows="10" placeholder="Insira a descrição do produto" required></textarea>
+                <button id="product-add" type="button" onclick="addProduct()">Incluir Produto</button>
+            </form>
+        </div>
+
+        <button id="product-list-btn" type="button" onclick="listProducts ()">Listar Produtos</button>
+
+        <table id="product-list"></table>
+    </article>
+
+    <script src="./script.js"></script>
+</body>
+</html>
