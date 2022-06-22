@@ -76,6 +76,13 @@ button {
     font-size: 18px;
     border: none;
     border-radius: 0;
+    transition: .3s;
+}
+
+button:active {
+    background-color: #a53333;
+    color: #fff;
+    transition: .3s;
 }
 
 td {

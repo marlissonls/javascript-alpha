@@ -7,8 +7,10 @@ const listProductButton = document.querySelector("#product-list-btn");
 const listProductTable = document.querySelector("#product-list");
 
 let Id = 0;
-
 let productsArray = [];
+
+addProductButton.addEventListener('click', addProduct);
+listProductButton.addEventListener('click', listProducts);
 
 function addProduct () {
     Id += 1;
