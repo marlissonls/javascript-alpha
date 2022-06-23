@@ -85,6 +85,14 @@ button:active {
     transition: .3s;
 }
 
+#product-edit {
+    background-color: #a53333;
+}
+
+#product-edit:active {
+    background-color: #555;;
+}
+
 td {
     min-width: 100px;
     height: 30px;
@@ -95,10 +103,38 @@ td {
 
 td:first-of-type {
     text-align: left;
+    cursor: pointer;
 }
 
 td img {
     width: 30%;
     user-select: none;
     -webkit-user-drag: none;
+    cursor: pointer;
+}
+
+#mostrar {
+    width: 500px;
+    min-height: 200px;
+    padding: 10px;
+
+    border: solid 2px #acacac;
+    background-color: #fff;
+
+    position: absolute;
+    top: 200px;
+}
+
+#mostrar p {
+    margin-top: 12px;
+}
+
+#fechar {
+    cursor: pointer;
+    color: #00f;
+    text-align: right;
+}
+
+#fechar:hover {
+    color: #f00;
 }

@@ -19,12 +19,23 @@
                 </div>
                 <textarea id="product-description" cols="30" rows="10" placeholder="Insira a descrição do produto" required></textarea>
                 <button id="product-add" type="button">Incluir Produto</button>
+                <button id="product-edit" type="button" hidden>Concluir Edição</button>
             </form>
         </div>
 
         <button id="product-list-btn" type="button">Listar Produtos</button>
 
         <table id="product-list"></table>
+
+        <div id="mostrar" hidden>
+            <div id="fechar">X</div>
+            <p>Id: <span id="Id"></span></p>
+            <p>Produto: <span id="nome"></span></p>
+            <p>Preço: R$ <span id="preco"></span></p>
+            <p>Descrição: <span id="descricao"></span></p>
+            <p>Data de inclusão: <span id="inclusao"></span></p>
+        </div>
+
     </article>
 
     <script src="./script.js"></script>
