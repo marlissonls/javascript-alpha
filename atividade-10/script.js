@@ -15,31 +15,49 @@ const mostrarPreco = document.querySelector("#preco");
 const mostrarDescricao = document.querySelector("#descricao");
 const mostrarData = document.querySelector("#inclusao");
 
+let idParaEditar = "";
 let Id = 0;
 let productsArray = [];
 
 addProductButton.addEventListener('click', addProduct);
 listProductButton.addEventListener('click', listProducts);
 
+function checkValues() {
+    try {
+        if (productName.value === '' || productPrice.value === '' || productDescription.value === '') {
+            throw `Você deixou campos vazios!`;
+        };
+        if (isNaN(productPrice.value) || parseFloat(productPrice.value) <= 0) {
+            throw 'Insira um preço numérico maior que zero';
+        };
+    } catch (error) {
+        warn.innerHTML = error;
+        return false;
+    }
+    return true;
+}
+
 function addProduct () {
-    Id += 1;
-    const creationDate = Date.now();
-    
-    const product = {
-        id: Id,
-        name: productName.value,
-        price: productPrice.value,
-        description: productDescription.value,
-        inclusionDate: creationDate
-    };
+    if (checkValues()) {
+        Id += 1;
+        const creationDate = Date.now();
+        
+        const product = {
+            id: Id,
+            name: productName.value,
+            price: productPrice.value,
+            description: productDescription.value,
+            inclusionDate: creationDate
+        };
 
-    productsArray.push(product);
+        productsArray.push(product);
 
-    productName.value = '';
-    productPrice.value = '';
-    productDescription.value = '';
+        productName.value = null;
+        productPrice.value = null;
+        productDescription.value = null;
 
-    warn.innerHTML = `O produto ${product.name} foi adicionado com sucesso!`;
+        warn.innerHTML = `O produto ${product.name} foi ADICIONADO com sucesso!`;
+    }
 }
 
 function listProducts () {
@@ -121,44 +139,48 @@ function editarProduto (id) {
     addProductButton.hidden = true;
     editProductButton.hidden = false;
 
-    editProductButton.addEventListener('click', () => { concluirEditar(id) });
+    idParaEditar = id;
 }
 
-function concluirEditar (id) {
-    let produto = "";
+function concluirEditar () {
+    if (checkValues()) {
+        let produto = "";
 
-    let i = 0;
-    while( i < productsArray.length ) {
-        if ( productsArray[i].id == id) {
-            produto = productsArray[i];
-            break;
+        let i = 0;
+        while( i < productsArray.length ) {
+            if ( productsArray[i].id == idParaEditar) {
+                produto = productsArray[i];
+                break;
+            }
+            i += 1;
         }
-        i += 1;
+        
+        const creationDate = new Date(produto.inclusionDate);
+
+        produto = {
+            id: idParaEditar,
+            name: productName.value,
+            price: productPrice.value,
+            description: productDescription.value,
+            inclusionDate: creationDate
+        };
+
+        productsArray[i] = produto;
+
+        warn.innerHTML = `O produto ${produto.name} foi MODIFICADO com sucesso!`;
+
+        addProductButton.hidden = false;
+        editProductButton.hidden = true;
+
+        listProducts ();
+
+        productName.value = null;
+        productPrice.value = null;
+        productDescription.value = null;
     }
-    
-    const creationDate = new Date(produto.inclusionDate);
-
-    produto = {
-        id: id,
-        name: productName.value,
-        price: productPrice.value,
-        description: productDescription.value,
-        inclusionDate: creationDate
-    };
-
-    productsArray[i] = produto;
-
-    warn.innerHTML = `O produto ${produto.name} foi modificado com sucesso!`;
-
-    addProductButton.hidden = false;
-    editProductButton.hidden = true;
-
-    listProducts ();
-
-    productName.value = null;
-    productPrice.value = null;
-    productDescription.value = null;
 }
+
+editProductButton.addEventListener('click', () => { concluirEditar() });
 
 function excluirProduto (id) {
     const newProducstArray = [];
@@ -167,6 +189,8 @@ function excluirProduto (id) {
     while ( i < productsArray.length ) {
         if( productsArray[i].id != id ) {
             newProducstArray.push(productsArray[i])
+        } else if (productsArray[i].id == id){
+            `O produto ${productsArray[i].name} foi DELETADO com sucesso!`;
         }
         i += 1;
     }
@@ -175,6 +199,3 @@ function excluirProduto (id) {
 
     listProducts ();
 }
-
-
-
