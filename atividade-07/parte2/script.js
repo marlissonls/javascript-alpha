@@ -4,9 +4,9 @@ let cepParte2;
 let stringLength;
 let key;
 
-cep.addEventListener('input', stringEraser);
-cep.addEventListener('keyup', cepLayout);
-cep.addEventListener('keydown', hifenEraser);
+cep.addEventListener('input', () => {stringEraser()});
+cep.addEventListener('keyup', function () {cepLayout()});
+cep.addEventListener('keydown', () => {hifenEraser(event)});
 
 function stringEraser () {
     cepParte1 = cep.value.substring(0, 5);

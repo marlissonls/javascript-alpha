@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI, 'Tahoma, Verdana, sans-serif;
+    /* border: solid red 1px; */
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#back1 {
+    width: 100%;
+    height: 40vh;
+    background-color:#00a884;
+}
+
+#back2 {
+    width: 100%;
+    height: 60vh;
+    background-color: #d3d7da;
+}
+
+main {
+    width: auto;
+    height: auto;
+    position: absolute;
+    border: solid 2px #f0f2f5;
+
+    background-image: linear-gradient(to right, #ffffff90, #ffffff90) ,url("./images/background.jpg");
+    background-repeat: repeat-x;
+    background-size: 50%;
+}
+
+#contact-bar {
+    width: 100%;
+    height: 60px;
+    padding: 0 50px;
+    background-color: #f0f2f5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.org-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#photo-profile {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+#photo-profile img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+#name-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#name-profile p:first-of-type {
+    font-family: Helvetica, sans-serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+#name-profile p:last-of-type {
+    font-family: Helvetica, sans-serif;
+    font-size: 13px;
+    color: #777777;
+}
+
+#options {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.ball {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #252525;
+}
+
+#conversation-field {
+    resize: none;
+    font-size: 20px;
+
+    width: 100%;
+    padding: 10px 15px;
+
+    background-color: #ffffff00;
+    border: none;
+}
+
+#inputs {
+    background-color: #f0f2f5;
+    padding: 10px 50px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+#message-field {
+    height: 45px;
+    width: 400px;
+    padding: 0 15px;
+    border-radius: 7px;
+    border: none;
+    font-size: 18px;
+    font-family: 'Segoe UI, 'Tahoma, Verdana, sans-serif;
+}
+
+button {
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 7px;
+    border: none;
+    font-size: 17px;
+    background-color: #d4d5d6
+}
+
+button:active {
+    background-color: #b9babb
+}
