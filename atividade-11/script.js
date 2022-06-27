@@ -210,18 +210,6 @@ function concluirEditar () {
     }
 }
 
-/* function excluirProduto (id) {
-    let i
-    for ( i = 0 ; i < productsArray.length ; i++ ) {
-        if( productsArray[i].id == id ) {
-            warn.innerHTML = `O produto "${productsArray[i].name}" foi DELETADO com sucesso!`;
-            productsArray.splice(i, 1);
-            break;
-        }
-    }
-    listProducts ();
-} */
-
 function searchProduct () {
     let foundProducts = 0;
     foundArray = [];
