@@ -21,6 +21,7 @@ const searchButton = document.querySelector("#search-button");
 let idParaEditar = "";
 let Id = 0;
 let productsArray = [];
+let foundArray = [];
 
 function checkValues () {
     try {
@@ -28,7 +29,7 @@ function checkValues () {
             throw `Você deixou campos vazios!`;
         };
         if (isNaN(productPrice.value) || parseFloat(productPrice.value) <= 0) {
-            throw 'Insira um preço numérico maior que zero!';
+            throw 'Insira um preço numérico maior que zero, separando decimais por ponto!';
         };
     } catch (error) {
         warn.innerHTML = error;
@@ -56,7 +57,7 @@ function addProduct () {
         productPrice.value = null;
         productDescription.value = null;
 
-        warn.innerHTML = `O produto ${product.name} foi ADICIONADO com sucesso!`;
+        warn.innerHTML = `O produto "${product.name}" foi ADICIONADO com sucesso!`;
     }
 }
 
@@ -65,11 +66,17 @@ function listProducts () {
 
     const titleRow = listProductTable.insertRow(0);
         
-    titleRow.insertCell(0).innerHTML = "<strong>Produto</strong>";
-    titleRow.insertCell(1).innerHTML = "<strong>Preço</strong>";
+    let titleCell01 = titleRow.insertCell(0);
+    let titleCell02 = titleRow.insertCell(1);
     titleRow.insertCell(2).innerHTML = "<strong>Editar</strong>";
     titleRow.insertCell(3).innerHTML = "<strong>Excluir</strong>";
 
+    titleCell01.innerHTML = "<strong>Produto</strong>";
+    titleCell02.innerHTML = "<strong>Preço</strong>";
+
+    titleCell01.addEventListener("click", orderByName);
+    titleCell02.addEventListener("click", orderByPrice);
+    
     for (let i = 0 ; i < productsArray.length ; i += 1 ) {
         let linha = listProductTable.insertRow(i+1);
 
@@ -92,10 +99,7 @@ function listProducts () {
 
 function mostrarProduto (id) {
     mostrarModal.hidden = false;
-    fecharModal.addEventListener('click', fechar);
-    function fechar () {
-        mostrarModal.hidden = true;
-    };
+    fecharModal.addEventListener('click', () => {mostrarModal.hidden = true});
 
     let produto = "";
 
@@ -118,7 +122,6 @@ function mostrarProduto (id) {
 function editarProduto (id) {
     let produto = "";
 
-    
     for (let i = 0 ; i < productsArray.length ; i += 1 ) {
         if ( productsArray[i].id == id) {
             produto = productsArray[i];
@@ -160,7 +163,7 @@ function concluirEditar () {
 
         productsArray[i] = produto;
 
-        warn.innerHTML = `O produto ${produto.name} foi MODIFICADO com sucesso!`;
+        warn.innerHTML = `O produto "${produto.name}" foi MODIFICADO com sucesso!`;
 
         addProductButton.hidden = false;
         editProductButton.hidden = true;
@@ -174,34 +177,38 @@ function concluirEditar () {
 }
 
 function excluirProduto (id) {
-    const newProducstArray = [];
-
-    for ( let i = 0 ; i < productsArray.length ; i += 1 ) {
-        if( productsArray[i].id != id ) {
-            newProducstArray.push(productsArray[i])
-        } else if (productsArray[i].id == id){
-            `O produto ${productsArray[i].name} foi DELETADO com sucesso!`;
+    let i
+    for ( i = 0 ; i < productsArray.length ; i++ ) {
+        if( productsArray[i].id == id ) {
+            warn.innerHTML = `O produto "${productsArray[i].name}" foi DELETADO com sucesso!`;
+            productsArray.splice(i, 1);
+            break;
         }
     }
-
-    productsArray = newProducstArray;
-
     listProducts ();
 }
 
 function searchProduct () {
-    listProductTable.innerHTML = '';
+    let foundProducts = 0;
+    foundArray = [];
 
+    listProductTable.innerHTML = '';
     const titleRow = listProductTable.insertRow(0);
-        
-    titleRow.insertCell(0).innerHTML = "<strong>Produto</strong>";
-    titleRow.insertCell(1).innerHTML = "<strong>Preço</strong>";
+
+    let titleCell01 = titleRow.insertCell(0);
+    let titleCell02 = titleRow.insertCell(1);
     titleRow.insertCell(2).innerHTML = "<strong>Editar</strong>";
     titleRow.insertCell(3).innerHTML = "<strong>Excluir</strong>";
-    
+
+    titleCell01.innerHTML = "<strong>Produto</strong>";
+    titleCell02.innerHTML = "<strong>Preço</strong>";
+
+    titleCell01.addEventListener("click", orderByName);
+    titleCell02.addEventListener("click", orderByPrice);
+
     let i;
-    for ( i = 0; i < productsArray.length; i++ ){
-        if ( productsArray[i].name.includes(searchInput.value) ) {
+    for ( i = productsArray.length-1; i >= 0 ; i-- ){
+        if ( productsArray[i].name.includes(searchInput.value) || productsArray[i].description.includes(searchInput.value) ) {
             let linha = listProductTable.insertRow(1);
 
             let celula01 = linha.insertCell(0);
@@ -218,9 +225,38 @@ function searchProduct () {
             celula01.addEventListener("click", () => { mostrarProduto (id) });
             celula03.addEventListener("click", () => { editarProduto (id) });
             celula04.addEventListener("click", () => { excluirProduto (id) });
-            //console.log(productsArray[i]);
+
+            foundProducts++;
+            foundArray.push(productsArray[i]);
         }
     }
+    if ( foundProducts > 0 ) {
+        warn.innerHTML = `Foram encontrados: ${foundProducts} produtos. `
+    } else {
+        warn.innerHTML = `Não foram encontrados produtos conforme a chave de pesquisa: ${searchInput.value}`
+    }
+}
+
+function orderByName () {
+    productsArray.sort((a, b) => {
+        let fa = a.name.toLowerCase(), fb = b.name.toLowerCase();
+
+        if (fa < fb) {
+            return -1;
+        }
+        if (fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    listProducts ();
+}
+
+function orderByPrice () {
+    productsArray.sort((a, b) => {
+        return a.price - b.price;
+    });
+    listProducts ();
 }
 
 addProductButton.addEventListener('click', addProduct);
