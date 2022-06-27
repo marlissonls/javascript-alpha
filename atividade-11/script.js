@@ -117,6 +117,18 @@ function listProducts () {
         });
         listProducts ();
     }
+
+    function excluirProduto (id) {
+        let i
+        for ( i = 0 ; i < productsArray.length ; i++ ) {
+            if( productsArray[i].id == id ) {
+                warn.innerHTML = `O produto "${productsArray[i].name}" foi DELETADO com sucesso!`;
+                productsArray.splice(i, 1);
+                break;
+            }
+        }
+        listProducts ();
+    }
 }
 
 function mostrarProduto (id) {
@@ -198,7 +210,7 @@ function concluirEditar () {
     }
 }
 
-function excluirProduto (id) {
+/* function excluirProduto (id) {
     let i
     for ( i = 0 ; i < productsArray.length ; i++ ) {
         if( productsArray[i].id == id ) {
@@ -208,7 +220,7 @@ function excluirProduto (id) {
         }
     }
     listProducts ();
-}
+} */
 
 function searchProduct () {
     let foundProducts = 0;
@@ -248,7 +260,7 @@ function searchProduct () {
             let id = foundArray[foundProducts].id
             celula01.addEventListener("click", () => { mostrarProduto (id) });
             celula03.addEventListener("click", () => { editarProduto (id) });
-            celula04.addEventListener("click", () => { excluirProduto (id) });
+            celula04.addEventListener("click", () => { excluirProdutoEncontrado (id) });
 
             foundProducts++;
         }
@@ -278,6 +290,23 @@ function searchProduct () {
         array.sort((a, b) => {
             return a.price - b.price;
         });
+        listFoundProducts ();
+    }
+
+    function excluirProdutoEncontrado (id) {
+        let i;
+        let j;
+        for ( i = 0 ; i < foundArray.length ; i++ ) {
+            if ( foundArray[i].id == id ) {
+                warn.innerHTML = `O produto "${foundArray[i].name}" foi DELETADO com sucesso!`;
+                foundArray.splice(i, 1);
+            }
+        }
+        for ( j = 0 ; j < productsArray.length ; j++ ) {
+            if ( productsArray[j].id == id ) {
+                productsArray.splice(j, 1);
+            }
+        }
         listFoundProducts ();
     }
 }
@@ -314,7 +343,7 @@ function listFoundProducts () {
         let id = foundArray[i].id
         celula01.addEventListener("click", () => { mostrarProduto (id) });
         celula03.addEventListener("click", () => { editarProduto (id) });
-        celula04.addEventListener("click", () => { excluirProduto (id) });
+        celula04.addEventListener("click", () => { excluirProdutoEncontrado (id) });
     }
 
     function orderFoundByName (array) {
@@ -336,6 +365,23 @@ function listFoundProducts () {
         array.sort((a, b) => {
             return a.price - b.price;
         });
+        listFoundProducts ();
+    }
+
+    function excluirProdutoEncontrado (id) {
+        let i;
+        let j;
+        for ( i = 0 ; i < foundArray.length ; i++ ) {
+            if ( foundArray[i].id == id ) {
+                warn.innerHTML = `O produto "${foundArray[i].name}" foi DELETADO com sucesso!`;
+                foundArray.splice(i, 1);
+            }
+        }
+        for ( j = 0 ; j < productsArray.length ; j++ ) {
+            if ( productsArray[j].id == id ) {
+                productsArray.splice(j, 1);
+            }
+        }
         listFoundProducts ();
     }
 }
