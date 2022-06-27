@@ -74,8 +74,8 @@ function listProducts () {
     titleCell01.innerHTML = "<strong>Produto</strong>";
     titleCell02.innerHTML = "<strong>Preço</strong>";
 
-    titleCell01.addEventListener("click", orderByName);
-    titleCell02.addEventListener("click", orderByPrice);
+    titleCell01.addEventListener("click", () => {orderByName (productsArray)});
+    titleCell02.addEventListener("click", () => {orderByPrice (productsArray)});
     
     for (let i = 0 ; i < productsArray.length ; i += 1 ) {
         let linha = listProductTable.insertRow(i+1);
@@ -94,6 +94,28 @@ function listProducts () {
         celula01.addEventListener("click", () => { mostrarProduto (id) });
         celula03.addEventListener("click", () => { editarProduto (id) });
         celula04.addEventListener("click", () => { excluirProduto (id) });
+    }
+
+    function orderByName (array) {
+        array.sort((a, b) => {
+            let fa = a.name.toLowerCase(), fb = b.name.toLowerCase();
+    
+            if (fa < fb) {
+                return -1;
+            }
+            if (fa > fb) {
+                return 1;
+            }
+            return 0;
+        });
+        listProducts ();
+    }
+    
+    function orderByPrice (array) {
+        array.sort((a, b) => {
+            return a.price - b.price;
+        });
+        listProducts ();
     }
 }
 
@@ -203,12 +225,14 @@ function searchProduct () {
     titleCell01.innerHTML = "<strong>Produto</strong>";
     titleCell02.innerHTML = "<strong>Preço</strong>";
 
-    titleCell01.addEventListener("click", orderByName);
-    titleCell02.addEventListener("click", orderByPrice);
+    titleCell01.addEventListener("click", () => {orderFoundByName (foundArray)});
+    titleCell02.addEventListener("click", () => {orderFoundByPrice (foundArray)});
 
     let i;
     for ( i = productsArray.length-1; i >= 0 ; i-- ){
         if ( productsArray[i].name.includes(searchInput.value) || productsArray[i].description.includes(searchInput.value) ) {
+            foundArray.push(productsArray[i]);
+            
             let linha = listProductTable.insertRow(1);
 
             let celula01 = linha.insertCell(0);
@@ -216,18 +240,17 @@ function searchProduct () {
             let celula03 = linha.insertCell(2);
             let celula04 = linha.insertCell(3);
 
-            celula01.innerHTML = `#${productsArray[i].id} ${productsArray[i].name}`;
-            celula02.innerHTML = `R$ ${productsArray[i].price}`;
+            celula01.innerHTML = `#${foundArray[foundProducts].id} ${foundArray[foundProducts].name}`;
+            celula02.innerHTML = `R$ ${foundArray[foundProducts].price}`;
             celula03.innerHTML = "<img src='images/edit-2-64.ico'>";
             celula04.innerHTML = "<img src='images/delete-64.ico'>";
 
-            let id = productsArray[i].id
+            let id = foundArray[foundProducts].id
             celula01.addEventListener("click", () => { mostrarProduto (id) });
             celula03.addEventListener("click", () => { editarProduto (id) });
             celula04.addEventListener("click", () => { excluirProduto (id) });
 
             foundProducts++;
-            foundArray.push(productsArray[i]);
         }
     }
     if ( foundProducts > 0 ) {
@@ -235,28 +258,86 @@ function searchProduct () {
     } else {
         warn.innerHTML = `Não foram encontrados produtos conforme a chave de pesquisa: ${searchInput.value}`
     }
+
+    function orderFoundByName (array) {
+        array.sort((a, b) => {
+            let fa = a.name.toLowerCase(), fb = b.name.toLowerCase();
+    
+            if (fa < fb) {
+                return -1;
+            }
+            if (fa > fb) {
+                return 1;
+            }
+            return 0;
+        });
+        listFoundProducts ();
+    }
+    
+    function orderFoundByPrice (array) {
+        array.sort((a, b) => {
+            return a.price - b.price;
+        });
+        listFoundProducts ();
+    }
 }
 
-function orderByName () {
-    productsArray.sort((a, b) => {
-        let fa = a.name.toLowerCase(), fb = b.name.toLowerCase();
+function listFoundProducts () {
+    listProductTable.innerHTML = '';
+    const titleRow = listProductTable.insertRow(0);
 
-        if (fa < fb) {
-            return -1;
-        }
-        if (fa > fb) {
-            return 1;
-        }
-        return 0;
-    });
-    listProducts ();
-}
+    let titleCell01 = titleRow.insertCell(0);
+    let titleCell02 = titleRow.insertCell(1);
+    titleRow.insertCell(2).innerHTML = "<strong>Editar</strong>";
+    titleRow.insertCell(3).innerHTML = "<strong>Excluir</strong>";
 
-function orderByPrice () {
-    productsArray.sort((a, b) => {
-        return a.price - b.price;
-    });
-    listProducts ();
+    titleCell01.innerHTML = "<strong>Produto</strong>";
+    titleCell02.innerHTML = "<strong>Preço</strong>";
+
+    titleCell01.addEventListener("click", () => {orderFoundByName (foundArray)});
+    titleCell02.addEventListener("click", () => {orderFoundByPrice (foundArray)});
+
+    let i;
+    for ( i = 0 ; i < foundArray.length ; i++ ) {
+        let linha = listProductTable.insertRow(i+1);
+
+        let celula01 = linha.insertCell(0);
+        let celula02 = linha.insertCell(1);
+        let celula03 = linha.insertCell(2);
+        let celula04 = linha.insertCell(3);
+
+        celula01.innerHTML = `#${foundArray[i].id} ${foundArray[i].name}`;
+        celula02.innerHTML = `R$ ${foundArray[i].price}`;
+        celula03.innerHTML = "<img src='images/edit-2-64.ico'>";
+        celula04.innerHTML = "<img src='images/delete-64.ico'>";
+
+        let id = foundArray[i].id
+        celula01.addEventListener("click", () => { mostrarProduto (id) });
+        celula03.addEventListener("click", () => { editarProduto (id) });
+        celula04.addEventListener("click", () => { excluirProduto (id) });
+    }
+
+    function orderFoundByName (array) {
+        array.sort((a, b) => {
+            let fa = a.name.toLowerCase(), fb = b.name.toLowerCase();
+    
+            if (fa < fb) {
+                return -1;
+            }
+            if (fa > fb) {
+                return 1;
+            }
+            return 0;
+        });
+        listFoundProducts ();
+    }
+    
+    function orderFoundByPrice (array) {
+        array.sort((a, b) => {
+            return a.price - b.price;
+        });
+        listFoundProducts ();
+    }
 }
 
 addProductButton.addEventListener('click', addProduct);
