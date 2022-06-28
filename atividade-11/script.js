@@ -6,6 +6,7 @@ const warn = document.querySelector("#warn");
 const listProductButton = document.querySelector("#product-list-btn");
 const listProductTable = document.querySelector("#product-list");
 const editProductButton = document.querySelector("#product-edit");
+const editProductFoundButton = document.querySelector("#product-found-edit");
 
 const mostrarModal = document.querySelector("#mostrar");
 const fecharModal = document.querySelector("#fechar");
@@ -129,6 +130,45 @@ function listProducts () {
         }
         listProducts ();
     }
+
+    function concluirEditar () {
+        if (checkValues()) {
+            let produto = "";
+    
+            let i;
+            for ( i = 0 ; i < productsArray.length ; i += 1 ) {
+                if ( productsArray[i].id == idParaEditar) {
+                    produto = productsArray[i];
+                    break;
+                }
+            }
+            
+            const creationDate = new Date(produto.inclusionDate);
+    
+            produto = {
+                id: idParaEditar,
+                name: productName.value,
+                price: productPrice.value,
+                description: productDescription.value,
+                inclusionDate: creationDate
+            };
+    
+            productsArray[i] = produto;
+    
+            warn.innerHTML = `O produto "${produto.name}" foi MODIFICADO com sucesso!`;
+    
+            addProductButton.hidden = false;
+            editProductButton.hidden = true;
+    
+            listProducts ();
+    
+            productName.value = null;
+            productPrice.value = null;
+            productDescription.value = null;
+        }
+    }
+
+    editProductButton.addEventListener('click', concluirEditar);
 }
 
 function mostrarProduto (id) {
@@ -173,41 +213,24 @@ function editarProduto (id) {
     idParaEditar = id;
 }
 
-function concluirEditar () {
-    if (checkValues()) {
-        let produto = "";
+function editarProdutoEncontrado (id) {
+    let produto = "";
 
-        let i;
-        for ( i = 0 ; i < productsArray.length ; i += 1 ) {
-            if ( productsArray[i].id == idParaEditar) {
-                produto = productsArray[i];
-                break;
-            }
+    for (let i = 0 ; i < foundArray.length ; i++ ) {
+        if ( foundArray[i].id == id) {
+            produto = foundArray[i];
+            break;
         }
-        
-        const creationDate = new Date(produto.inclusionDate);
-
-        produto = {
-            id: idParaEditar,
-            name: productName.value,
-            price: productPrice.value,
-            description: productDescription.value,
-            inclusionDate: creationDate
-        };
-
-        productsArray[i] = produto;
-
-        warn.innerHTML = `O produto "${produto.name}" foi MODIFICADO com sucesso!`;
-
-        addProductButton.hidden = false;
-        editProductButton.hidden = true;
-
-        listProducts ();
-
-        productName.value = null;
-        productPrice.value = null;
-        productDescription.value = null;
     }
+
+    productName.value = produto.name;
+    productPrice.value = produto.price;
+    productDescription.value = produto.description;
+
+    addProductButton.hidden = true;
+    editProductFoundButton.hidden = false;
+
+    idParaEditar = id;
 }
 
 function searchProduct () {
@@ -247,7 +270,7 @@ function searchProduct () {
 
             let id = foundArray[foundProducts].id
             celula01.addEventListener("click", () => { mostrarProduto (id) });
-            celula03.addEventListener("click", () => { editarProduto (id) });
+            celula03.addEventListener("click", () => { editarProdutoEncontrado (id) });
             celula04.addEventListener("click", () => { excluirProdutoEncontrado (id) });
 
             foundProducts++;
@@ -297,6 +320,53 @@ function searchProduct () {
         }
         listFoundProducts ();
     }
+
+    function concluirEditarEncontrado () {
+        if (checkValues()) {
+            let produto = "";
+    
+            let i;
+            let j;
+            for ( i = 0 ; i < foundArray.length ; i += 1 ) {
+                if (foundArray[i].id == idParaEditar) {
+                    produto = foundArray[i];
+                    break;
+                }
+            }
+
+            for ( j = 0 ; j < productsArray.length ; j++ ) {
+                if (productsArray[j].id == idParaEditar) {
+                    break;
+                }
+            }
+            
+            const creationDate = new Date(produto.inclusionDate);
+    
+            produto = {
+                id: idParaEditar,
+                name: productName.value,
+                price: productPrice.value,
+                description: productDescription.value,
+                inclusionDate: creationDate
+            };
+    
+            foundArray[i] = produto;
+            productsArray[j] = produto;
+    
+            warn.innerHTML = `O produto "${produto.name}" foi MODIFICADO com sucesso!`;
+    
+            addProductButton.hidden = false;
+            editProductFoundButton.hidden = true;
+    
+            listFoundProducts ();
+    
+            productName.value = null;
+            productPrice.value = null;
+            productDescription.value = null;
+        }
+    }
+
+    editProductFoundButton.addEventListener('click', concluirEditarEncontrado);
 }
 
 function listFoundProducts () {
@@ -330,7 +400,7 @@ function listFoundProducts () {
 
         let id = foundArray[i].id
         celula01.addEventListener("click", () => { mostrarProduto (id) });
-        celula03.addEventListener("click", () => { editarProduto (id) });
+        celula03.addEventListener("click", () => { editarProdutoEncontrado (id) });
         celula04.addEventListener("click", () => { excluirProdutoEncontrado (id) });
     }
 
@@ -372,9 +442,55 @@ function listFoundProducts () {
         }
         listFoundProducts ();
     }
+
+    function concluirEditarEncontrado () {
+        if (checkValues()) {
+            let produto = "";
+    
+            let i;
+            let j;
+            for ( i = 0 ; i < foundArray.length ; i += 1 ) {
+                if (foundArray[i].id == idParaEditar) {
+                    produto = foundArray[i];
+                    break;
+                }
+            }
+
+            for ( j = 0 ; j < productsArray.length ; j++ ) {
+                if (productsArray[j].id == idParaEditar) {
+                    break;
+                }
+            }
+            
+            const creationDate = new Date(produto.inclusionDate);
+    
+            produto = {
+                id: idParaEditar,
+                name: productName.value,
+                price: productPrice.value,
+                description: productDescription.value,
+                inclusionDate: creationDate
+            };
+    
+            foundArray[i] = produto;
+            productsArray[j] = produto;
+    
+            warn.innerHTML = `O produto "${produto.name}" foi MODIFICADO com sucesso!`;
+    
+            addProductButton.hidden = false;
+            editProductFoundButton.hidden = true;
+    
+            listFoundProducts ();
+    
+            productName.value = null;
+            productPrice.value = null;
+            productDescription.value = null;
+        }
+    }
+
+    editProductFoundButton.addEventListener('click', concluirEditarEncontrado);
 }
 
 addProductButton.addEventListener('click', addProduct);
 listProductButton.addEventListener('click', listProducts);
-editProductButton.addEventListener('click', () => { concluirEditar() });
 searchButton.addEventListener('click', searchProduct);
