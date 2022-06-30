@@ -87,7 +87,7 @@ function showHand() {
 function shuffle() {
     firstShuffle = 1;
     embaralhar.hidden = true;
-    baralho = baralhoOrdem;
+    //baralho = baralhoOrdem;
     for (let i = 0; i < baralho.length; i++) {
         const j = Math.floor(Math.random()*baralho.length);
         const aux = baralho[i];
