@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da velha</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Jogo da velha</h1>
+    </header>
+    <main>
+        <section id="line1" class="line">
+            <div data-id="0" class="column" onclick="gaming(0,0,0)"></div>
+            <div data-id="1" class="column border" onclick="gaming(0,1,1)"></div>
+            <div data-id="2" class="column" onclick="gaming(0,2,2)"></div>
+        </section>
+        <section id="line2" class="line">
+            <div data-id="3" class="column" onclick="gaming(1,0,3)"></div>
+            <div data-id="4" class="column border" onclick="gaming(1,1,4)"></div>
+            <div data-id="5" class="column" onclick="gaming(1,2,5)"></div>
+        </section>
+        <section id="line3" class="line">
+            <div data-id="6" class="column" onclick="gaming(2,0,6)"></div>
+            <div data-id="7" class="column border" onclick="gaming(2,1,7)"></div>
+            <div data-id="8" class="column" onclick="gaming(2,2,8)"></div>
+        </section>
+        <p data-id="results" class="results"></p>
+        <button type="button" id="btn" onclick="restart()">Reiniciar</button>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
