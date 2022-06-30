@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+#cards {
+    width: 150px;
+}
+
+#section {
+    display: flex;
+    gap: 20px;
+}
+
+.hand-cards {
+    width: 150px;
+}
