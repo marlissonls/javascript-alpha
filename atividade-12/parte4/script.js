@@ -1,5 +1,5 @@
 let baralho;
-//let baralhoOrdem = [];
+let baralhoOrdem;
 let fiveCards;
 let firstShuffle = 0;
 let eq;
@@ -77,6 +77,8 @@ baralho = [
     {id: 52, naipe: "espada", valor: "A"}
 ];
 
+baralhoOrdem = baralho.slice();
+
 function showHand() {
     let id = '';
     for (let z = 0; z < fiveCards.length; z++) {
@@ -88,7 +90,8 @@ function showHand() {
 function shuffle() {
     firstShuffle = 1;
     embaralhar.hidden = true;
-    //baralho = baralhoOrdem;
+    baralho = [];
+    baralho = baralhoOrdem.slice();
     for (let i = 0; i < baralho.length; i++) {
         const j = Math.floor(Math.random()*baralho.length);
         const aux = baralho[i];
@@ -111,9 +114,9 @@ function take5Cards() {
             fiveCards.push(baralho[j]);
         }
     } else {
-        message.innerHTML = '';
+        showHandCards.innerHTML = ''
         embaralhar.hidden = false;
-        return showHandCards.innerHTML = 'Atenção! Há menos de 5 cartas restantes no baralho!'
+        return message.innerHTML = 'Atenção! Há menos de 5 cartas restantes no baralho!';
     }
 
     for (let k = 0; k < 5; k++) {
