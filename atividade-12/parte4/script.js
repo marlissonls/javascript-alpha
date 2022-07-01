@@ -90,6 +90,7 @@ function showHand() {
 function shuffle() {
     firstShuffle = 1;
     embaralhar.hidden = true;
+    message.innerHTML = '';
     baralho = [];
     baralho = baralhoOrdem.slice();
     for (let i = 0; i < baralho.length; i++) {
