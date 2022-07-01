@@ -1,7 +1,7 @@
 let baralho;
 //let baralhoOrdem = [];
 let fiveCards;
-let firstShuffle = 1;
+let firstShuffle = 0;
 let eq;
 let dif;
 let flush;
@@ -20,7 +20,7 @@ const doisPares = 'Você conseguiu um Dois Pares!';
 const gotNothing = 'Você não conseguiu nada!'
 
 baralho = [
-    /* {id: 1, naipe: "copa", valor: "2"},
+    {id: 1, naipe: "copa", valor: "2"},
     {id: 2, naipe: "copa", valor: "3"},
     {id: 3, naipe: "copa", valor: "4"},
     {id: 4, naipe: "copa", valor: "5"},
@@ -60,7 +60,7 @@ baralho = [
     {id: 36, naipe: "ouro", valor: "J"},
     {id: 37, naipe: "ouro", valor: "Q"},
     {id: 38, naipe: "ouro", valor: "K"},
-    {id: 39, naipe: "ouro", valor: "A"}, */
+    {id: 39, naipe: "ouro", valor: "A"},
 
     {id: 40, naipe: "espada", valor: "2"},
     {id: 41, naipe: "espada", valor: "3"},
@@ -129,119 +129,88 @@ function take5Cards() {
 }
 
 function verifyStraightFlush() { // verificação de STRAIGHT FLUSH
-    flush = 0;
+    let copa = 0;
+    let paus = 0;
+    let ouro = 0;
+    let espada = 0;
+
+    function fStraightFlush() {
+        let cresc = 0;
+        let decresc = 0;
+        for (let v = 0; v < 4; v++) {
+            if (fiveCards[v].id+1 === fiveCards[v+1].id) {
+                cresc++;
+                if (cresc === 4) {
+                    message.innerHTML = straightFlush;
+                    return true;
+                }
+            }
+            
+            if (fiveCards[v].id-1 === fiveCards[v+1].id) {
+                decresc++;
+                if (decresc === 4) {
+                    message.innerHTML = straightFlush;
+                    return true;
+                }
+            }
+        }
+    }
+
     for (let l = 0; l < 5; l++) {
         if (fiveCards[l].naipe === 'copa'){
-            flush++;
-            if (flush === 5){
-                let cresc = 0;
-                let decresc = 0;
-                for (let v = 0; v < 4; v++) {
-                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
-                        cresc++;
-                        if (cresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        }
-                    }
-                    
-                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
-                        decresc++;
-                        if (decresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        }
-                    }
+            copa++;
+            if (copa === 5) {
+                fStraightFlush();
+                if (fStraightFlush()) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
         }
     }
 
-    flush = 0;
     for (let l = 0; l < 5; l++) {
         if (fiveCards[l].naipe === 'paus'){
-            flush++;
-            if (flush === 5){
-                let cresc = 0;
-                let decresc = 0;
-                for (let v = 0; v < 4; v++) {
-                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
-                        cresc++;
-                        if (cresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        }
-                    }
-                    
-                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
-                        decresc++;
-                        if (decresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        }
-                    }
+            paus++;
+            if (paus === 5) {
+                fStraightFlush();
+                if (fStraightFlush()) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
         }
     }
 
-    flush = 0;
     for (let l = 0; l < 5; l++) {
         if (fiveCards[l].naipe === 'ouro'){
-            flush++;
-            if (flush === 5){
-                let cresc = 0;
-                let decresc = 0;
-                for (let v = 0; v < 4; v++) {
-                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
-                        cresc++;
-                        if (cresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        }
-                    }
-                    
-                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
-                        decresc++;
-                        if (decresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        }
-                    }
+            ouro++;
+            if (ouro === 5) {
+                fStraightFlush();
+                if (fStraightFlush()) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
         }
     }
 
-    flush = 0;
     for (let l = 0; l < 5; l++) {
         if (fiveCards[l].naipe === 'espada'){
-            flush++;
-            if (flush === 5){
-                let cresc = 0;
-                let decresc = 0;
-                for (let v = 0; v < 4; v++) {
-                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
-                        cresc++;
-                        if (cresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        }
-                    }
-                    
-                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
-                        decresc++;
-                        if (decresc === 4) {
-                            message.innerHTML = straightFlush;
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
+            espada++;
+            if (espada === 5) {
+                fStraightFlush();
+                if (fStraightFlush()) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
         }
-    }    
+    }
 }
 
 function verifyEqualElements() {
