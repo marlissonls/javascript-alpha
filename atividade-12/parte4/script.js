@@ -1,9 +1,10 @@
 let baralho;
 //let baralhoOrdem = [];
 let fiveCards;
-let firstShuffle = 0;
+let firstShuffle = 1;
 let eq;
 let dif;
+let flush;
 
 const takeFiveCards = document.querySelector("#cards");
 const embaralhar = document.querySelector("#embaralhar");
@@ -19,7 +20,7 @@ const doisPares = 'Você conseguiu um Dois Pares!';
 const gotNothing = 'Você não conseguiu nada!'
 
 baralho = [
-    {id: 1, naipe: "copa", valor: "2"},
+    /* {id: 1, naipe: "copa", valor: "2"},
     {id: 2, naipe: "copa", valor: "3"},
     {id: 3, naipe: "copa", valor: "4"},
     {id: 4, naipe: "copa", valor: "5"},
@@ -59,7 +60,7 @@ baralho = [
     {id: 36, naipe: "ouro", valor: "J"},
     {id: 37, naipe: "ouro", valor: "Q"},
     {id: 38, naipe: "ouro", valor: "K"},
-    {id: 39, naipe: "ouro", valor: "A"},
+    {id: 39, naipe: "ouro", valor: "A"}, */
 
     {id: 40, naipe: "espada", valor: "2"},
     {id: 41, naipe: "espada", valor: "3"},
@@ -128,64 +129,119 @@ function take5Cards() {
 }
 
 function verifyStraightFlush() { // verificação de STRAIGHT FLUSH
+    flush = 0;
     for (let l = 0; l < 5; l++) {
-        let flush = 0;
-        if (fiveCards[l].naipe == 'copa'){
+        if (fiveCards[l].naipe === 'copa'){
             flush++;
             if (flush === 5){
-                if ((fiveCards[0].id+1===fiveCards[1].id && fiveCards[1].id+1===fiveCards[2].id && fiveCards[2].id+1===fiveCards[3].id && fiveCards[3].id+1===fiveCards[4].id) ||
-                    (fiveCards[0].id-1===fiveCards[1].id && fiveCards[1].id-1===fiveCards[2].id && fiveCards[2].id-1===fiveCards[3].id && fiveCards[3].id-1===fiveCards[4].id)) {
-                    message.innerHTML = straightFlush;
-                    return true;
+                let cresc = 0;
+                let decresc = 0;
+                for (let v = 0; v < 4; v++) {
+                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
+                        cresc++;
+                        if (cresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        }
+                    }
+                    
+                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
+                        decresc++;
+                        if (decresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        }
+                    }
                 }
             }
         }
     }
 
+    flush = 0;
     for (let l = 0; l < 5; l++) {
-        let flush = 0;
-        if (fiveCards[l].naipe == 'paus'){
+        if (fiveCards[l].naipe === 'paus'){
             flush++;
             if (flush === 5){
-                if ((fiveCards[0].id+1===fiveCards[1].id && fiveCards[1].id+1===fiveCards[2].id && fiveCards[2].id+1===fiveCards[3].id && fiveCards[3].id+1===fiveCards[4].id) ||
-                    (fiveCards[0].id-1===fiveCards[1].id && fiveCards[1].id-1===fiveCards[2].id && fiveCards[2].id-1===fiveCards[3].id && fiveCards[3].id-1===fiveCards[4].id)) {
-                    message.innerHTML = straightFlush;
-                    return true;
+                let cresc = 0;
+                let decresc = 0;
+                for (let v = 0; v < 4; v++) {
+                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
+                        cresc++;
+                        if (cresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        }
+                    }
+                    
+                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
+                        decresc++;
+                        if (decresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        }
+                    }
                 }
             }
         }
     }
 
+    flush = 0;
     for (let l = 0; l < 5; l++) {
-        let flush = 0;
-        if (fiveCards[l].naipe == 'ouro'){
+        if (fiveCards[l].naipe === 'ouro'){
             flush++;
             if (flush === 5){
-                if ((fiveCards[0].id+1===fiveCards[1].id && fiveCards[1].id+1===fiveCards[2].id && fiveCards[2].id+1===fiveCards[3].id && fiveCards[3].id+1===fiveCards[4].id) ||
-                    (fiveCards[0].id-1===fiveCards[1].id && fiveCards[1].id-1===fiveCards[2].id && fiveCards[2].id-1===fiveCards[3].id && fiveCards[3].id-1===fiveCards[4].id)) {
-                    message.innerHTML = straightFlush;
-                    return true;
+                let cresc = 0;
+                let decresc = 0;
+                for (let v = 0; v < 4; v++) {
+                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
+                        cresc++;
+                        if (cresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        }
+                    }
+                    
+                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
+                        decresc++;
+                        if (decresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        }
+                    }
                 }
             }
         }
     }
 
+    flush = 0;
     for (let l = 0; l < 5; l++) {
-        let flush = 0;
-        if (fiveCards[l].naipe == 'espada'){
+        if (fiveCards[l].naipe === 'espada'){
             flush++;
             if (flush === 5){
-                if ((fiveCards[0].id+1===fiveCards[1].id && fiveCards[1].id+1===fiveCards[2].id && fiveCards[2].id+1===fiveCards[3].id && fiveCards[3].id+1===fiveCards[4].id) ||
-                    (fiveCards[0].id-1===fiveCards[1].id && fiveCards[1].id-1===fiveCards[2].id && fiveCards[2].id-1===fiveCards[3].id && fiveCards[3].id-1===fiveCards[4].id)) {
-                        message.innerHTML = straightFlush;
-                    return true;
-                } else {
-                    return false;
+                let cresc = 0;
+                let decresc = 0;
+                for (let v = 0; v < 4; v++) {
+                    if (fiveCards[v].id+1 === fiveCards[v+1].id) {
+                        cresc++;
+                        if (cresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        }
+                    }
+                    
+                    if (fiveCards[v].id-1 === fiveCards[v+1].id) {
+                        decresc++;
+                        if (decresc === 4) {
+                            message.innerHTML = straightFlush;
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
                 }
             }
         }
-    }
-    
+    }    
 }
 
 function verifyEqualElements() {
