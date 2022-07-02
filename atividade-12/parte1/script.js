@@ -7,24 +7,27 @@ let euler;
 let itr;
 
 function calcFat(n) {
-    itr = iteracoes.value;
-    fatorial = 1;
+    itr = BigInt(iteracoes.value);
+    fatorial = 1n;
     let i;
-    for (i = 1; i <= n; i++) {
+
+    for (i = 1n; i <= n; i++) {
         fatorial *= i;
     }
-    fatresult.textContent = itr + '! = ' + fatorial;
     return fatorial;
 }
 
 function calcEuler() {
-    itr = iteracoes.value;
-    euler = 0;
+    itr = BigInt(iteracoes.value);
+    euler = 0n;
     let n;
-    for (n = 0; n <= itr; n++){
-        euler += (1/calcFat(n));
+
+    for (n = 2n; n <= itr; n++){
+        euler += (10n**100n/calcFat(n));
     }
-    eulerNumber.textContent = 'euler('+itr+') = ' + euler;
+
+    fatresult.textContent = itr + '! = ' + fatorial;
+    eulerNumber.textContent = 'euler('+itr+') = 2.' + euler;
 }
 
 calc.addEventListener('click', calcEuler);
