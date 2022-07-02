@@ -12,6 +12,7 @@ const showHandCards = document.querySelector('#section');
 const message = document.querySelector("#message");
 
 const straightFlush = 'Você conseguiu um Straight Flush!';
+const sequence = 'Você conseguiu uma sequência de cartas com mesmo valor!'
 const quadra = 'Você conseguiu um quadra!';
 const fullHouse = 'Você conseguiu um Full House!';
 const trinca = 'Você conseguiu um Trinca!';
@@ -233,6 +234,8 @@ function verifyEqualElements() {
     }
 
     switch (eq) {
+        case 20:
+            return message.innerHTML = sequence;
         case 12:
             return message.innerHTML = quadra;
         case 4:
@@ -353,7 +356,16 @@ dif = 2+2+2+4+4 = 14
 eq = 2+2+2+0+0 = 6
 
 dif = 4+2+2+2+4 = 14
-eq = 0+2+2+2+0 = 6 */
+eq = 0+2+2+2+0 = 6 
+
+sequencia
+3 3 3 3 3
+
+dif = 0+0+0+0+0 = 0
+eq = 4+4+4+4+4 = 20
+
+
+*/
 
 /* if (eq === 12 && dif === 8) { // verificação de QUADRA
         return quadra;
