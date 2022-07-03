@@ -4,7 +4,6 @@ let fiveCards;
 let firstShuffle = 0;
 let eq;
 let dif;
-let flush;
 
 const takeFiveCards = document.querySelector("#cards");
 const embaralhar = document.querySelector("#embaralhar");
