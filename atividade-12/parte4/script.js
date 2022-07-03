@@ -92,8 +92,10 @@ function shuffle() {
     firstShuffle = 1;
     embaralhar.hidden = true;
     message.innerHTML = '';
+
     baralho = [];
     baralho = baralhoOrdem.slice();
+
     for (let i = 0; i < baralho.length; i++) {
         const j = Math.floor(Math.random()*baralho.length);
         const aux = baralho[i];
@@ -112,24 +114,21 @@ function take5Cards() {
     fiveCards = [];
 
     if (baralho.length > 5) {
-        for (let j = 0; j < 5; j++) {
-            fiveCards.push(baralho[j]);
-        }
+        fiveCards = baralho.slice(0, 5); // copia os 5 primeiros elementos
     } else {
         showHandCards.innerHTML = ''
         embaralhar.hidden = false;
-        return message.innerHTML = 'Atenção! Há menos de 5 cartas restantes no baralho!';
+        message.innerHTML = 'Atenção! Há menos de 5 cartas restantes no baralho!';
+        return 
     }
 
-    for (let k = 0; k < 5; k++) {
-        baralho.splice(k, 1);
-    }
+    baralho.splice(0, 5); // remove os 5 primeiros elementos
     
-    showHand();
+    showHand(); // mostra a mão de 5 cartas
 
-    verifyStraightFlush();
-    if (!verifyStraightFlush()) {
-        verifyEqualElements();
+    verifyStraightFlush(); // chama a função que verifica se a mão é um straight flush
+    if (!verifyStraightFlush()) { // verifica se a função verifyStraightFlush() retorna true ou false
+        verifyEqualElements(); // chama a função que verifica cartas repetidas na mão caso a função verifyStraightFlush() retorne false
     };
 }
 
