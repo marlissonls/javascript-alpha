@@ -13,7 +13,7 @@ body {
     justify-content: space-evenly;
     gap: 30px;
     align-items: center;
-    background-image: linear-gradient(to right, #ff8080d0, #8080ffd0), url(./img/background.jpg);
+    background-image: linear-gradient(to right, #e75b78d0, #75c8dad0), url(./img/background.jpg);
 }
 
 nav {
