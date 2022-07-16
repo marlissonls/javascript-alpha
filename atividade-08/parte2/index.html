@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main id="principal">
+        <form id="form">
+            <p id="warn"></p>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" placeholder="Nome">
+            <label for="">Data de Nascimento:</label>
+            <div>
+                <input type="text" id="day" placeholder="Dia Nasc.">
+                <input type="text" id="month" placeholder="Mês Nasc.">
+                <input type="text" id="year" placeholder="Ano Nasc.">
+            </div>
+            <label for="weight">Peso:</label>
+            <input type="text" id="weight" placeholder="Peso">
+            <label for="height">Altura:</label>
+            <input type="text" id="height" placeholder="Altura">
+            <label for="gender">Gênero:</label>
+            <select id="gender">
+                <option value=""></option>
+                <option value="masculino">Masculino</option>
+                <option value="masculino">Feminino</option>
+            </select>
+            <button type="button" id="send-btn">ENVIAR</button>
+        </form>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
