@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main id="main">
+        <form id="form">
+            <p id="warn" style="text-align: center"></p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="ex: Kenji">
+            <label for="">Birth date:</label>
+            <div>
+                <input type="text" id="day" placeholder="ex: 15">
+                <input type="text" id="month" placeholder="ex: 5 ">
+                <input type="text" id="year" placeholder="ex: 1999">
+            </div>
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" placeholder="ex: 70">
+            <label for="height">Height:</label>
+            <input type="text" id="height" placeholder="ex: 180">
+            <label for="gender">Gender:</label>
+            <select id="gender">
+                <option value=""></option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <button type="button" id="send-btn">SEND</button>
+        </form>
+        <section id="profile">
+            <p>USER PROFILE</p>
+            <p>Name: <span id="ObjName"></span></p>
+            <p>Weight: <span id="ObjWeight"></span></p>
+            <p>Height: <span id="ObjHeight"></span></p>
+            <p>Gender: <span id="ObjGender"></span></p>
+            <p>Birth Date: <span id="ObjBdate"></span></p>
+            <p>String object: <span id="ObjString"></span></p>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
