@@ -7,8 +7,8 @@ const height = document.querySelector('#height');
 const gender = document.querySelector('#gender');
 const sendBtn = document.querySelector('#send-btn');
 let user;
-const currentDate = new Date();
-const birthDate = new Date();
+let currentDate;
+let birthDate;
 const warn = document.querySelector('#warn');
 
 function checkValues() {
@@ -77,12 +77,15 @@ function checkValues() {
 }
 
 function setObject() {
+    currentDate = new Date();
+    birthDate = new Date();
+
     user = {};
 
-    birthDate.setDate(parseInt(day.value));
-    birthDate.setMonth(parseInt(month.value)-1);
     birthDate.setFullYear(parseInt(year.value));
-
+    birthDate.setMonth(parseInt(month.value)-1);
+    birthDate.setDate(parseInt(day.value));
+    
     if (checkValues()) {
         user = {
             name: nome.value,

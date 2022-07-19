@@ -35,6 +35,10 @@ input, select {
     font-size: 20px;
 }
 
+input:focus, select:focus {
+    outline: none;
+}
+
 div input {
     width: 113px;
 }
