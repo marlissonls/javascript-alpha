@@ -30,13 +30,16 @@ function checkValues() {
         if (isNaN(parseFloat(weight.value.replace(',','.')))) {
             throw `Field “weight” is invalid!`;
         };
-        if (isNaN(height.value) || parseFloat(height.value)%1 ==! 0) {
+        if (!Number.isInteger(parseFloat(height.value.replace(',','.')))) {
             throw `Field “height” is invalid!`;
         };
         if (gender.value === '') {
             throw `Field “gender” is invalid!`;
         };
-        if (day.value === '' || month.value === '' || year.value === '') {
+        if (isNaN(day.value) || isNaN(month.value) || isNaN(year.value)) {
+            throw 'Field “birthDate” is invalid!';
+        }
+        if (!Number.isInteger(parseFloat(day.value.replace(',','.'))) || !Number.isInteger(parseFloat(month.value.replace(',','.'))) || !Number.isInteger(parseFloat(year.value.replace(',','.')))) {
             throw 'Field “birthDate” is invalid!';
         };
         if (birthDate >= currentDate) {
