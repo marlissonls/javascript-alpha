@@ -38,51 +38,51 @@ function checkValues() {
         };
         if (isNaN(day.value) || isNaN(month.value) || isNaN(year.value)) {
             throw 'Field “birthDate” is invalid!';
-        }
-        if (!Number.isInteger(parseFloat(day.value.replace(',','.'))) || !Number.isInteger(parseFloat(month.value.replace(',','.'))) || !Number.isInteger(parseFloat(year.value.replace(',','.')))) {
+        };
+        if (!Number.isInteger(parseFloat(day.value)) || !Number.isInteger(parseFloat(month.value)) || !Number.isInteger(parseFloat(year.value))) {
             throw 'Field “birthDate” is invalid!';
         };
         if (birthDate >= currentDate) {
            throw 'Field “birthDate” is invalid!';
-        }
-        if (parseInt(year.value) >= currentDate.getFullYear()-130) {
-            switch (parseInt(month.value)-1) {
-                case 0:
-                case 2:
-                case 4:
-                case 6:
-                case 7:
-                case 9:
-                case 11:
-                    if (!(parseInt(day.value) > 0 && parseInt(day.value) < 32)) {
-                        throw 'Field “birthDate” is invalid!';
-                    };
-                    break;
-                case 3:
-                case 5:
-                case 8:
-                case 10:
-                    if (!(parseInt(day.value) > 0 && parseInt(day.value) < 31)) {
-                        throw 'Field “birthDate” is invalid!';
-                    };
-                    break;
-                case 1:
-                    if (parseInt(year.value)%4 === 0) {
-                        if (!(parseInt(day.value) > 0 && parseInt(day.value) < 30)) {
-                            throw 'Field “birthDate” is invalid!';
-                        };
-                    } else {
-                        if (!(parseInt(day.value) > 0 && parseInt(day.value) < 29)) {
-                            throw 'Field “birthDate” is invalid!';
-                        };
-                    };
-                    break;
-                default:
-                    throw 'Field “birthDate” is invalid!';
-            };
-        } else {
+        };
+        if (parseInt(year.value) < currentDate.getFullYear()-130) {
             throw 'Field “birthDate” is invalid!';
         };
+        switch (parseInt(month.value)-1) {
+            case 0:
+            case 2:
+            case 4:
+            case 6:
+            case 7:
+            case 9:
+            case 11:
+                if (!(parseInt(day.value) > 0 && parseInt(day.value) < 32)) {
+                    throw 'Field “birthDate” is invalid!';
+                };
+                break;
+            case 3:
+            case 5:
+            case 8:
+            case 10:
+                if (!(parseInt(day.value) > 0 && parseInt(day.value) < 31)) {
+                    throw 'Field “birthDate” is invalid!';
+                };
+                break;
+            case 1:
+                if (parseInt(year.value)%4 === 0) {
+                    if (!(parseInt(day.value) > 0 && parseInt(day.value) < 30)) {
+                        throw 'Field “birthDate” is invalid!';
+                    };
+                } else {
+                    if (!(parseInt(day.value) > 0 && parseInt(day.value) < 29)) {
+                        throw 'Field “birthDate” is invalid!';
+                    };
+                };
+                break;
+            default:
+                throw 'Field “birthDate” is invalid!';
+        };
+        
     } catch (error) {
         warn.innerHTML = error;
         return false;
