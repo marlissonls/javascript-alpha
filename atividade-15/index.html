@@ -9,19 +9,35 @@
 </head>
 <body>
     <main>
-        <form action="">
-            <select name="" id="coin">
-                <option value="" hidden>Selecionar Conversão</option>
-                <option value="USD">BRL/USD</option>
-                <option value="EUR">BRL/EUR</option>
-            </select><br>
-            <label for="start-date">Data início:</label>
-            <input id="start-date" type="date"><br>
-            <label for="end-date">Data final:</label>
-            <input id="end-date" type="date"><br>
+        <h2>Consulte a cotação de diversas moedas em um período específico</h2>
+        <form action="none">
+            <div>
+                <span>
+                    <label for="start-date">Data de início:</label>
+                    <input id="start-date" type="date">
+                </span>
+                <span>
+                    <label for="end-date">Data de Término:</label>
+                    <input id="end-date" type="date">
+                </span>
+            </div>
+            <div>
+                <p>Selecione a moeda para conversão:</p>
+                <select name="" id="coin">
+                    <option value="" hidden></option>
+                    <option value="USD">BRL/USD</option>
+                    <option value="EUR">BRL/EUR</option>
+                    <option value="BTC">BRL/BTC</option>
+                    <option value="CAD">BRL/CAD</option>
+                    <option value="AUD">BRL/AUD</option>
+                </select>
+            </div>
             <button id="btn" type="button">Exchange</button>
         </form>
-        <table id="table"></table>
+        <h3 hidden>Tabela de Cotação Atual da Moeda Selecionada</h3>
+        <table id="current-exchange-table"></table>
+        <h3 hidden>Tabela de Cotação  da Moeda Selecionada no Período Selecionado</h3>
+        <table id="period-exchange-table"></table>
     </main>
     <script src="./script.js"></script>
     <!-- <script src="./scriptv1.0.js"></script> -->

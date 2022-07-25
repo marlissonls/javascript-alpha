@@ -8,6 +8,7 @@
 }
 
 body {
+    padding-top: 40px;
     display: flex;
     justify-content: center;
 }
@@ -16,6 +17,22 @@ main {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+span {
+    padding: 0 20px 0 20px;
+}
+
+#btn {
+    height: 25px;
+    width: 150px;
 }
 
 tr:first-of-type {
