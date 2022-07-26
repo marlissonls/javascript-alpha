@@ -19,11 +19,11 @@ function createTableTitleRow(table) {
 
     let titleRow = table.insertRow(0);
             
-    let titleDateAndHour = titleRow.insertCell(0).innerHTML = `Data e hora`;
-    let titleMinValue = titleRow.insertCell(1).innerHTML = `Mínimo`;
-    let titleMaxValue = titleRow.insertCell(2).innerHTML = `Máximo`;
-    let titleClosingValueForSale = titleRow.insertCell(3).innerHTML = `Valor Venda`;
-    let titleClosingValueForPurchase = titleRow.insertCell(4).innerHTML = `Valor Compra`;
+    titleRow.insertCell(0).innerHTML = `Data e hora`;
+    titleRow.insertCell(1).innerHTML = `Mínimo`;
+    titleRow.insertCell(2).innerHTML = `Máximo`;
+    titleRow.insertCell(3).innerHTML = `Valor Venda`;
+    titleRow.insertCell(4).innerHTML = `Valor Compra`;
 }
 
 function selectQuoteDataExchange(data) {
@@ -45,6 +45,8 @@ function selectQuoteDataExchange(data) {
         case 'AUD':
             qData = data.AUDBRL;
             break;
+        default:
+            qData = data.USDBRL;
     }
 
     return qData;
@@ -55,25 +57,25 @@ function createCurrentExchangeTableBody(data, table) {
 
     let bodyRow = table.insertRow(1);
 
-    let dateAndHour = bodyRow.insertCell(0).innerHTML = `${quoteData.create_date.substring(0,10)} às ${quoteData.create_date.substring(11,19)}`;
-    let minValue = bodyRow.insertCell(1).innerHTML = `R$${quoteData.low}`;
-    let maxValue = bodyRow.insertCell(2).innerHTML = `R$${quoteData.high}`;
-    let closingValueForSale = bodyRow.insertCell(3).innerHTML = `R$${quoteData.ask}`;
-    let closingValueForPurchase = bodyRow.insertCell(4).innerHTML = `R$${quoteData.bid}`;
+    bodyRow.insertCell(0).innerHTML = `${quoteData.create_date.substring(0,10)} às ${quoteData.create_date.substring(11,19)}`;
+    bodyRow.insertCell(1).innerHTML = `R$${quoteData.low}`;
+    bodyRow.insertCell(2).innerHTML = `R$${quoteData.high}`;
+    bodyRow.insertCell(3).innerHTML = `R$${quoteData.ask}`;
+    bodyRow.insertCell(4).innerHTML = `R$${quoteData.bid}`;
 }
 
 function createPeriodExchangeTableBody(data, table) {
     let bodyRow = table.insertRow(1);
 
-    let dateAndHour = bodyRow.insertCell(0).innerHTML = `${data[0].create_date.substring(0,10)} às ${data[0].create_date.substring(11,19)}`;
-    let minValue = bodyRow.insertCell(1).innerHTML = `R$${data[0].low}`;
-    let maxValue = bodyRow.insertCell(2).innerHTML = `R$${data[0].high}`;
-    let closingValueForSale = bodyRow.insertCell(3).innerHTML = `R$${data[0].ask}`;
-    let closingValueForPurchase = bodyRow.insertCell(4).innerHTML = `R$${data[0].bid}`;
+    bodyRow.insertCell(0).innerHTML = `${data[0].create_date.substring(0,10)} às ${data[0].create_date.substring(11,19)}`;
+    bodyRow.insertCell(1).innerHTML = `R$${data[0].low}`;
+    bodyRow.insertCell(2).innerHTML = `R$${data[0].high}`;
+    bodyRow.insertCell(3).innerHTML = `R$${data[0].ask}`;
+    bodyRow.insertCell(4).innerHTML = `R$${data[0].bid}`;
 }
 
 function convertStandardDateToAPIFormatDate(standardDate) {
-    let ApiFormatDate;
+    let ApiFormatDate
 
     if (standardDate.getMonth()+1 >= 10 && standardDate.getDate() >= 10) {
         ApiFormatDate = `${standardDate.getFullYear()}${standardDate.getMonth()+1}${standardDate.getDate()}`;
@@ -139,18 +141,17 @@ function createExchangeTableGeneralFunction() {
 
         fetch(url)
         .then((response) => {
-            return response.json()
+            return response.json();
         })
         .then((data) => {
-            createPeriodExchangeTableBody(data, periodExchangeTable)
+            createPeriodExchangeTableBody(data, periodExchangeTable);
             onLoadingDataChangeCursor(false);
         })
         .catch((error) => {
-            onLoadingDataChangeCursor(false);
-            console.error(error)
+            console.error(error);
         })
     }
+    
 }
 
-btnCreateExchangeTable.addEventListener('click', currentExchange);
-btnCreateExchangeTable.addEventListener('click', createExchangeTableGeneralFunction);
+btnCreateExchangeTable.addEventListener('click', () => {currentExchange(); createExchangeTableGeneralFunction()});
