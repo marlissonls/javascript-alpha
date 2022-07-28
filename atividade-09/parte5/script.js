@@ -20,33 +20,7 @@ function sum(op1, op2) {
     return op1 + op2;
 }
 
-function division(dividendo, divisor, subtraendo, quociente) {
-    if (subtraendo <= dividendo) {
-        quociente = sum(quociente, 1);
-        subtraendo = sum(subtraendo, divisor);
-        return division(dividendo, divisor, subtraendo, quociente);
-    }
-
-    if (subtraendo > dividendo) {
-        return quociente;
-    }
-}
-
-function calcular() {
-    if (checkInputs()) {
-        const operando1 = parseInt(operando1input.value)
-        const operando2 = parseInt(operando2input.value)
-
-        const result = division(operando1, operando2, 0, -1);
-
-        resultFinal.textContent = `Resultado: ${result}`;
-    }
-} 
-
-calcButton.addEventListener('click', calcular);
-
-//FUNÇÕES NÃO UTILIZADAS
-/* function subtract(op1, op2, result) {
+function subtract(op1, op2, result) {
     if (op1 > op2) {
         result = sum(result, 1);
         return subtract(op1, sum(op2, 1), result);
@@ -57,6 +31,33 @@ calcButton.addEventListener('click', calcular);
     }
 }
 
+function division(dividendo, divisor, subtraendo, quociente) {
+    if (subtraendo <= dividendo) {
+        quociente = sum(quociente, 1);
+        subtraendo = sum(subtraendo, divisor);
+        return division(dividendo, divisor, subtraendo, quociente);
+    }
+
+    if (subtraendo > dividendo) {
+        return quociente = subtract(quociente, 1, 0);
+    }
+}
+
+function calcular() {
+    if (checkInputs()) {
+        const operando1 = parseInt(operando1input.value)
+        const operando2 = parseInt(operando2input.value)
+
+        const result = division(operando1, operando2, 0, 0);
+
+        resultFinal.textContent = `Resultado: ${result}`;
+    }
+} 
+
+calcButton.addEventListener('click', calcular);
+
+//FUNÇÕES NÃO UTILIZADAS
+/* 
 function multiply(op1, op2, multiplier, i) {
     if (i < op1) {
         i = sum(i, 1)
