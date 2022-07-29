@@ -11,22 +11,13 @@
     <title>Prova Trio</title>
 </head>
 <body>
-    <nav>
-        <p class='main'>home</p>
-        <p class='page1'>page1</p>
-        <p class='page2'>page2</p>
-    </nav>
     <main>
-        <img src="./img.jpg" class="img-background">
         <form action="">
-            <input id="" type="text" placeholder="Ex: something">
-            <select name="" id="">
-                <option value="" hidden></option>
-                <option value="">ALGUMA COISA</option>
-            </select>
-            <button id="btn-form" class="btn" type="button">Botão</button>
+            <label for="name">Nome completo:</label>
+            <input id="fullname" type="text" placeholder="Ex: Andre" name="name">
+            <button id="btn-form" class="btn" type="button">Enviar</button>
+            <div id="result"></div>
         </form>
-        <div id="root"></div>
     </main>
     <script type="module" src="./index.js"></script>
 </body>

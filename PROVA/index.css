@@ -50,6 +50,7 @@ nav p {
     border-radius: 7px;
     padding: 5px 20px 5px 20px;
     font-size: 18px;
+    transition: .4s;
 }
 
 nav p:hover {

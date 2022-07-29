@@ -1,9 +1,37 @@
-///////////////////////////////////
-/// MODULES
+import ASCII from "./ASCII.js";
 
-/* 
-import main from "./main.js";
-import page1 from "./page1.js";
+const fullNameInput = document.querySelector("#fullname")
+const btnForm = document.querySelector("#btn-form")
+
+let fullName = '';
+function getFullName() {
+    fullName = fullNameInput.value;
+    const Nome = new ASCII(fullNameInput.value, null)
+    Nome.getCode
+    console.log(Nome.getArray)
+}
+
+btnForm.addEventListener('click', getFullName)
+
+/* function getCharCodes() {
+    let name = fullName.value
+    console.log(name)
+    let charCodeArr = [];
+    
+    for(let i = 0; i < name.length; i++){
+        let code = name.charCodeAt(i);
+        charCodeArr.push(code);
+        console.log(charCodeArr[i])
+    }
+    
+    return charCodeArr;
+} */
+
+/* let array1
+array1.push("Hello, World!")
+array1.forEach((e, i) => console.log(e)); */
+
+/* import page1 from "./page1.js";
 import page2 from "./page2.js";
 
 main();
@@ -15,9 +43,11 @@ const btn1 = document.querySelector(".page1")
 btn1.addEventListener('click', page1)
 
 const btn2 = document.querySelector(".page2")
-btn2.addEventListener('click', page2)
- */
+btn2.addEventListener('click', page2) */
 
+
+//////////////////////////////////
+/// REQUISIÇÕES FETCH
 
 /* 
 ///////
