@@ -14,10 +14,9 @@ export default class ASCII {
         let nome = this.string
         let charCodeArr = [];
         
-        for(let i = 0; i < nome.length; i++){
+        for (let i = 0; i < nome.length; i++){
             let code = nome.charCodeAt(i);
             charCodeArr.push(code);
-            console.log(charCodeArr[i])
         }
         
         return this.code = charCodeArr;
