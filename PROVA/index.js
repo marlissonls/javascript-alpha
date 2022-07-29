@@ -1,3 +1,24 @@
+///////////////////////////////////
+/// MODULES
+
+/* 
+import main from "./main.js";
+import page1 from "./page1.js";
+import page2 from "./page2.js";
+
+main();
+
+const btn0 = document.querySelector(".main")
+btn0.addEventListener('click', main)
+
+const btn1 = document.querySelector(".page1")
+btn1.addEventListener('click', page1)
+
+const btn2 = document.querySelector(".page2")
+btn2.addEventListener('click', page2)
+ */
+
+
 /* 
 ///////
 const url = 'https://api.github.com/users/marlissonls';
@@ -31,25 +52,6 @@ getUser()
 //////
  */
 
-///////////////////////////////////
-/// MODULES
-
-/* 
-import main from "./main.js";
-import page1 from "./page1.js";
-import page2 from "./page2.js";
-
-main();
-
-const btn0 = document.querySelector(".main")
-btn0.addEventListener('click', main)
-
-const btn1 = document.querySelector(".page1")
-btn1.addEventListener('click', page1)
-
-const btn2 = document.querySelector(".page2")
-btn2.addEventListener('click', page2)
- */
 
 
 //////////////////////////////////////
