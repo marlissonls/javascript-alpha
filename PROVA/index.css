@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    /* border: 1px red solid; */
+}
+
+.apontador1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.apontador2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+nav p {
+    color: #333333;
+    background-color: #dddddd;
+    border-radius: 7px;
+    padding: 5px 20px 5px 20px;
+    font-size: 18px;
+}
+
+nav p:hover {
+    color: #dddddd;
+    background-color: #333333;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+input, select {
+    width: 300px;
+    height: 33px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 15px -5px;
+    text-align: center;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 30px 30px 30px;
+    background-color: #ffffff;
+    border: 2px rgb(189, 189, 189) solid;
+    border-radius: 15px;
+    box-shadow: 0 0 15px -5px;
+    font-size: 18px;
+}
+
+.btn {
+    padding: 7px 40px 7px 40px;
+    border-radius: 7px;
+    border: none;
+    background-color: #666666;
+    color: #dddddd;
+    font-size: 18px;
+}
+
+.btn:active {
+    background-color: #333333;
+}
+
+.img-background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 250px;
+    opacity: 50%;
+}
